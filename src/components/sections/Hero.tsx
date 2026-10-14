@@ -1,77 +1,40 @@
-"use client";
-
-import { useRef } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { sectionPath } from "@/lib/routes";
-import { ScrollVideo, type ScrollVideoFrame } from "@/components/video/ScrollVideo";
-
-const CLIPS = [
-  {
-    src: "/video/inici-volta.mp4",
-    srcMobile: "/video/inici-volta-m.mp4",
-    poster: "/video/inici-volta.webp",
-    posterMobile: "/video/inici-volta-m.webp",
-    scroll: 1.4,
-  },
-] as const;
-
-const clamp = (value: number) => Math.min(1, Math.max(0, value));
+import { HeroStage } from "./HeroStage";
 
 /**
- * Primera pantalla: la barra de fang surt de l'extrusora amb «CERAMICA FERRES» imprès, i el scroll
- * en mou el temps. El text és HTML real i es veu sense JS ni vídeo; només s'esvaeix en baixar.
+ * Primera pantalla: les gelosies Empúries de la foto d'estudi de Ferrés entren una a una fent
+ * saltirons i s'aturen on són a la foto. Text a l'esquerra i escenari a la dreta; a mòbil, l'escenari
+ * a dalt. Tot és HTML i CSS: es veu igual sense JavaScript.
  */
 export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
-  const copy = useRef<HTMLDivElement>(null);
-  const hint = useRef<HTMLDivElement>(null);
-
-  // Estils escrits directament al DOM a cada fotograma: res de setState.
-  const onFrame = ({ progress }: ScrollVideoFrame) => {
-    const out = clamp((progress - 0.45) / 0.4);
-    if (copy.current) {
-      copy.current.style.opacity = String(1 - out);
-      copy.current.style.transform = `translate3d(0, ${-out * 8}vh, 0)`;
-    }
-    if (hint.current) hint.current.style.opacity = String(1 - clamp(progress / 0.15));
-  };
-
   return (
-    <section id="inici" aria-labelledby="inici-titol" className="relative">
-      <ScrollVideo clips={CLIPS} label={t.hero.videoLabel} onFrame={onFrame} stageClassName="bg-calc">
-        {/* Vel per llegir el text sobre el vídeo */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-calc via-calc/30 to-transparent sm:from-calc/80 sm:via-transparent" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 hidden w-[62%] bg-gradient-to-r from-calc/85 via-calc/45 to-transparent sm:block" />
+    <section id="inici" aria-labelledby="inici-titol" className="hero relative overflow-hidden lg:h-[100svh] lg:min-h-[42rem]">
+      <HeroStage label={t.hero.imageAlt} caption={t.hero.pieceCaption} />
 
-        <div className="container-x relative flex h-full flex-col justify-end pb-[max(2.5rem,7vh)] pt-[var(--header-h)]">
-          <div ref={copy} className="max-w-[62rem] will-change-transform">
-            <p className="eyebrow text-terra">{t.hero.eyebrow}</p>
-            <h1 id="inici-titol" className="display mt-5 text-[clamp(3rem,8.4vw,8.5rem)] text-carbo">
-              {t.hero.title}
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-carbo/80 sm:text-xl">{t.hero.lead}</p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a href={sectionPath(locale, "contact")} className="btn btn-primary">
-                {t.hero.primary}
-                <span aria-hidden="true">→</span>
-              </a>
-              <a href={sectionPath(locale, "collections")} className="btn btn-ghost bg-calc/60 text-carbo backdrop-blur-sm">
-                {t.hero.secondary}
-              </a>
-            </div>
-            <p className="mt-8 flex items-center gap-3 text-sm text-carbo/70">
-              <span aria-hidden="true" className="inline-block h-px w-10 bg-terra" />
-              {t.hero.proof}
-            </p>
+      <div className="container-x relative z-10 flex flex-col pb-14 pt-8 lg:h-full lg:justify-center lg:pb-[8svh] lg:pt-[var(--header-h)]">
+        <div className="max-w-xl lg:max-w-[min(36rem,37vw)]">
+          <p className="eyebrow text-terra">{t.hero.eyebrow}</p>
+          <h1 id="inici-titol" className="display mt-5 text-[clamp(2.7rem,10vw,4.2rem)] text-carbo lg:text-[clamp(3rem,5.2vw,6rem)]">
+            {t.hero.title}
+          </h1>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-carbo/80">{t.hero.lead}</p>
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <a href={sectionPath(locale, "contact")} className="btn btn-primary">
+              {t.hero.primary}
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href={sectionPath(locale, "collections")} className="btn btn-ghost bg-blanc/60 text-carbo backdrop-blur-sm">
+              {t.hero.secondary}
+            </a>
           </div>
-          <div ref={hint} className="absolute bottom-6 right-[max(1rem,4vw)] hidden text-right sm:block">
-            <p className="eyebrow text-carbo/60">
-              {t.hero.scroll} <span aria-hidden="true">↓</span>
-            </p>
-            <p className="mt-2 max-w-[15rem] text-[0.68rem] leading-snug text-carbo/50">{t.workshop.note}</p>
-          </div>
+          <p className="mt-8 flex items-center gap-3 text-sm text-carbo/70">
+            <span aria-hidden="true" className="inline-block h-px w-10 bg-terra" />
+            {t.hero.proof}
+          </p>
         </div>
-      </ScrollVideo>
+      </div>
     </section>
   );
 }

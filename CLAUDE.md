@@ -13,6 +13,8 @@ Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és pro
   amb la build de producció, no amb el servidor de desenvolupament.
 - `pnpm check` = typecheck + lint + tests. És el hook de pre-push (`.githooks/pre-push`, amb gitleaks).
 - `pnpm images` prepara les fotos de `_source/` a `public/images/` en tres amplades (640, 1080, 1600).
+- `pnpm hero` separa la foto de les Empúries en capes (`public/images/inici/`, `src/data/hero-pieces.json`);
+  amb `--debug` deixa el mapa de peces i la foto recomposta a `_source/hero-debug/`.
 - Si un canvi a `globals.css` no surt al navegador ni reiniciant el servidor, és la memòria cau de
   webpack: atura'l, esborra `.next/dev` i `.next/cache` i torna'l a engegar (passat el 14-10-2026).
 - **Node 22.** Si el `node` global és un altre (nvm el pot haver canviat una altra sessió), posa
@@ -29,7 +31,7 @@ Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és pro
   `src/i18n/dictionaries/`. El català és la referència de tipus: `es`, `en` i `fr` han de tenir
   les mateixes claus (hi ha una prova).
 - Les fotos de projectes porten sempre l'arquitecte i el fotògraf, com a la web del client.
-- Els clips de vídeo estan **generats amb IA a partir de fotos pròpies de Ferrés** (taller i estudi),
+- Els clips de vídeo estan **generats amb IA a partir de fotos pròpies de Ferrés** (taller),
   mai de fotos de projectes d'arquitectes. Al client se li diu així; no es presenten com a gravació.
 
 ## Escenes

@@ -58,8 +58,8 @@ async function swatch(name, file) {
 }
 
 async function socialImage() {
-  const poster = join(root, "public/video/inici-volta.webp");
-  if (!(await exists(poster))) return console.warn("  falta el pòster del vídeo d'inici per a og.jpg");
+  const poster = join(root, "_source/web/hero/Ceramica_Ferres_Empuries_NewSunbreak.jpg");
+  if (!(await exists(poster))) return console.warn("  falta la foto de les Empúries per a og.jpg");
   const logo = (await readFile(join(root, "public/brand/logo-ferres.svg"), "utf8")).replace(/currentColor/g, "#903d00");
   const logoPng = await sharp(Buffer.from(logo)).resize({ width: 420 }).png().toBuffer();
   const shade = Buffer.from(

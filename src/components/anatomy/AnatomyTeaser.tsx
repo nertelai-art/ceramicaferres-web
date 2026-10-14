@@ -4,13 +4,16 @@
 // (scroll natural, sense secció enganxada) i cada capa porta la seva explicació. El detall
 // interactiu (materials, esmalts, comparativa) és a la pàgina de materials.
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useRef, type CSSProperties } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { materialsPath, SECTION_IDS } from "@/lib/routes";
-import { useReducedMotion } from "@/components/scroll/scroll-scene";
+import { useNearViewport, useReducedMotion, useRenderMode } from "@/components/scroll/scroll-scene";
 import { ExplodedPiece } from "./ExplodedPiece";
+
+const AnatomyScene = dynamic(() => import("./AnatomyScene"), { ssr: false });
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -18,13 +21,17 @@ const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 export function AnatomyTeaser({ locale, t }: { locale: Locale; t: Dictionary }) {
   const a = t.anatomy;
   const stage = useRef<HTMLDivElement>(null);
+  const spread = useRef(0);
   const reduced = useReducedMotion();
+  const mode = useRenderMode();
+  const near = useNearViewport(stage);
 
   // De 0 a 1 mentre la peça puja des de baix de la pantalla fins al centre. S'escriu a una variable CSS.
   useEffect(() => {
     const element = stage.current;
     if (!element) return;
     if (reduced) {
+      spread.current = 1;
       element.style.setProperty("--spread", "1");
       return;
     }
@@ -33,7 +40,8 @@ export function AnatomyTeaser({ locale, t }: { locale: Locale; t: Dictionary }) 
       raf = 0;
       const rect = element.getBoundingClientRect();
       const progress = clamp((window.innerHeight - rect.top) / (window.innerHeight * 0.75));
-      element.style.setProperty("--spread", easeOutCubic(progress).toFixed(4));
+      spread.current = easeOutCubic(progress);
+      element.style.setProperty("--spread", spread.current.toFixed(4));
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -50,9 +58,15 @@ export function AnatomyTeaser({ locale, t }: { locale: Locale; t: Dictionary }) 
 
   return (
     <section id={SECTION_IDS.material} aria-labelledby="material-titol" className="relative overflow-hidden bg-calc py-[clamp(5rem,11vw,9rem)]">
-      <div className="container-x grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
+      <div className="container-x grid items-center gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-10">
         <div ref={stage} className="order-2 lg:order-1" style={{ "--spread": reduced ? 1 : 0 } as CSSProperties}>
-          <ExplodedPiece material="vidriat" glaze="azul-43" labels={a.layers} className="h-[min(100vw,30rem)] md:-translate-x-[12%] lg:h-[34rem]" />
+          {mode === "3d" ? (
+            <div className="relative h-[min(92vw,30rem)] lg:h-[34rem]">
+              {near && <AnatomyScene material="vidriat" glaze="azul-43" spread={spread} labels={a.layers} />}
+            </div>
+          ) : (
+            <ExplodedPiece material="vidriat" glaze="azul-43" labels={a.layers} className="h-[min(100vw,30rem)] md:-translate-x-[12%] lg:h-[34rem]" />
+          )}
           {/* A mòbil les etiquetes no hi caben al costat: van a sota, en llista. */}
           <ol className="mt-6 grid gap-4 md:hidden">
             {a.layers.map((layer, i) => (
@@ -82,7 +96,7 @@ export function AnatomyTeaser({ locale, t }: { locale: Locale; t: Dictionary }) 
             ))}
           </dl>
           <div className="reveal mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
-            <Link href={materialsPath(locale)} className="btn btn-primary self-start">
+            <Link href={materialsPath(locale)} className="btn btn-primary shrink-0 self-start whitespace-nowrap">
               {a.cta} <span aria-hidden="true">→</span>
             </Link>
             <p className="max-w-xs text-sm text-carbo/65">{a.ctaNote}</p>

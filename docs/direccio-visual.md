@@ -23,8 +23,8 @@ tècniques van en Figtree amb `tabular-nums`.
 
 | Secció | Tècnica | Per què |
 |---|---|---|
-| Inici | Vídeo lligat al scroll (`scroll-video`) | La seva foto d'estudi de les gelosies Volta: llum que es mou i ombres d'arcs a terra. (La primera versió, la barra de fang a l'extrusora, era massa fosca i ensenyava massa maquinària.) |
+| Inici | Entrada en carregar, CSS (`hero-phases.ts`) | La seva foto d'estudi de les gelosies Empúries, separada en capes: les peces entren una a una fent saltirons, com si caminessin, i s'aturen on són a la foto. Sense vídeo ni scroll. (Abans: la barra de fang a l'extrusora, massa fosca; les Volta, que ja surten a «Com es fa»; un clip del revestiment Albera, que no va agradar.) |
 | De la filera a la peça | 3D (`scroll-3d-scenes`) | Una celosia és un perfil extruït: es modela exactament com es fabrica (`ExtrudeGeometry`). |
 | El taller | Vídeo lligat al scroll, muntatge de clips curts | Fotos reals de taller animades; fos entre passos, no recorregut continu. |
-| Anatomia del material | CSS 3D (vista explosionada) | A l'inici, versió curta que s'explica sola; el detall interactiu (material, esmalt, comparativa) és a la pàgina de materials. |
+| Anatomia del material | 3D (three.js) amb reserva en CSS 3D | A l'inici, versió curta que s'explica sola; el detall interactiu (material, esmalt, comparativa) és a la pàgina de materials. |
 | Projectes, col·leccions, a mida, sostenibilitat | CSS + `IntersectionObserver` | Entrades discretes: les escenes fortes són dues. |

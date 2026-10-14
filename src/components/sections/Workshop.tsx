@@ -33,10 +33,10 @@ export function Workshop({ t }: { t: Dictionary }) {
         onFrame={onFrame}
         fade={0.18}
         stageClassName="bg-calc-2"
-        mediaClassName="absolute overflow-hidden rounded-[1.25rem] max-lg:inset-x-4 max-lg:bottom-6 max-lg:top-[46%] lg:bottom-[9vh] lg:right-[4vw] lg:top-[calc(var(--header-h)+5vh)] lg:w-[min(40vw,34rem)]"
+        mediaClassName="absolute overflow-hidden rounded-[1.25rem] shadow-[0_30px_60px_-30px_rgba(46,46,45,0.45)] max-lg:inset-x-4 max-lg:bottom-6 max-lg:top-[46%] lg:left-[calc(50%+2.5rem)] lg:top-[calc(50%+var(--header-h)/2)] lg:aspect-[4/5] lg:h-[min(70vh,42rem)] lg:-translate-y-1/2"
       >
         <div className="container-x relative flex h-full flex-col pt-[calc(var(--header-h)+1rem)] lg:justify-center lg:pt-0">
-          <div className="max-w-xl lg:max-w-[44%]">
+          <div className="max-w-xl lg:mr-[calc(50%+2.5rem)] lg:ml-auto lg:max-w-md">
             <p className="eyebrow text-terra">{t.workshop.eyebrow}</p>
             <h2 id="taller-titol" className="display mt-4 text-[clamp(2.2rem,4.8vw,4.4rem)]">
               {t.workshop.title}

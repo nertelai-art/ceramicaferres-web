@@ -35,8 +35,8 @@ export const en: Dictionary = {
     primary: "Let's talk about your project",
     secondary: "View collections",
     proof: "Projects in Barcelona, Madrid, Mallorca, Shanghai and Singapore",
-    scroll: "Scroll down to enter the workshop",
-    videoLabel: "Volta sunbreak pieces in terracotta and yellow in the studio; the sunlight moves and the shadows of the arches slide across the floor.",
+    imageAlt: "Empúries sunbreak pieces in red and light terracotta hop into place and form a studio composition: a row, a pair in front, a single piece and a wall of four.",
+    pieceCaption: "Empúries sunbreak · Emiliana Design Studio · Bronze Delta, ADI 2024",
   },
   intro: {
     eyebrow: "Family business",
@@ -218,6 +218,7 @@ export const en: Dictionary = {
     glazesLead: "Real samples from the Ferrés finishes chart. The glazes are made with oxides and a transparent coating, and are single-fired.",
     ctaTitle: "Request samples",
     ctaText: "Physical samples are the best way to choose: each batch varies slightly in colour.",
+    rotateHint: "Drag to rotate the piece",
   },
   projects: {
     eyebrow: "Projects",

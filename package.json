@@ -16,6 +16,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "images": "node scripts/prepare-images.mjs",
+    "hero": "node scripts/prepare-hero.mjs",
     "check": "pnpm typecheck && pnpm lint && pnpm test",
     "prepare": "git config core.hooksPath .githooks || true"
   },

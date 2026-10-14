@@ -39,8 +39,8 @@ export const fr: Dictionary = {
     primary: "Parlons de votre projet",
     secondary: "Voir les collections",
     proof: "Réalisations à Barcelone, Madrid, Majorque, Shanghai et Singapour",
-    scroll: "Faites défiler pour entrer dans l'atelier",
-    videoLabel: "Pièces de claustra Volta en terre cuite et en jaune dans le studio ; la lumière du soleil se déplace et les ombres des arcs glissent sur le sol.",
+    imageAlt: "Des pièces de claustra Empúries, en terre cuite rouge et claire, arrivent en sautillant et forment une composition de studio : une rangée, une paire devant, une pièce seule et un mur de quatre.",
+    pieceCaption: "Claustra Empúries · Emiliana Design Studio · Delta de Bronze ADI 2024",
   },
   intro: {
     eyebrow: "Entreprise familiale",
@@ -222,6 +222,7 @@ export const fr: Dictionary = {
     glazesLead: "Échantillons réels du nuancier de finitions Ferrés. Les émaux sont faits d'oxydes et d'un vernis transparent, et cuits en monocuisson.",
     ctaTitle: "Demandez des échantillons",
     ctaText: "Les échantillons physiques sont le meilleur moyen de choisir : chaque lot varie légèrement de couleur.",
+    rotateHint: "Faites glisser pour tourner la pièce",
   },
   projects: {
     eyebrow: "Projets",
