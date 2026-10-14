@@ -41,7 +41,7 @@ export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
       <ScrollVideo clips={CLIPS} label={t.hero.videoLabel} onFrame={onFrame} stageClassName="bg-calc">
         {/* Vel per llegir el text sobre el vídeo */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-calc via-calc/30 to-transparent sm:from-calc/80 sm:via-transparent" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-calc/95 via-calc/55 to-transparent sm:block" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 hidden w-[62%] bg-gradient-to-r from-calc/85 via-calc/45 to-transparent sm:block" />
 
         <div className="container-x relative flex h-full flex-col justify-end pb-[max(2.5rem,7vh)] pt-[var(--header-h)]">
           <div ref={copy} className="max-w-[62rem] will-change-transform">

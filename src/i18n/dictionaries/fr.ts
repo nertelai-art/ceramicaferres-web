@@ -130,7 +130,7 @@ export const fr: Dictionary = {
       { title: "Séchage", text: "Les pièces reposent sur les étagères jusqu'à ce qu'elles aient perdu leur eau." },
       { title: "Émail", text: "Les pièces émaillées sont plongées dans l'émail et cuites une seule fois : monocuisson." },
     ],
-    note: "Séquences générées par IA à partir de photographies réelles de l'atelier Ferrés.",
+    note: "Séquences générées par IA à partir de photographies réelles de Ferrés.",
     videoLabel:
       "Scènes de l'atelier : de l'argile entre les mains, un fil d'acier qui coupe la barre d'argile, des pièces qui sèchent sur les étagères et un carreau plongé dans l'émail.",
   },

@@ -125,7 +125,7 @@ export const es: Dictionary = {
       { title: "Secado", text: "Las piezas reposan en las estanterías hasta que han perdido el agua." },
       { title: "Esmalte", text: "Las piezas vidriadas se bañan en esmalte y se cuecen una sola vez: monococción." },
     ],
-    note: "Clips generados con IA a partir de fotografías reales del taller de Ferrés.",
+    note: "Clips generados con IA a partir de fotografías reales de Ferrés.",
     videoLabel:
       "Escenas del taller: arcilla en las manos, un hilo de acero cortando la barra de barro, piezas secándose en las estanterías y una baldosa bañada en esmalte.",
   },
