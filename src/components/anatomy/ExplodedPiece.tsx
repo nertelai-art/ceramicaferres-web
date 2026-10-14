@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { GLAZES, MATERIALS, type GlazeFile, type MaterialKey } from "@/data/materials";
+import { MATERIALS, type GlazeFile, type MaterialKey } from "@/data/materials";
 
 /**
  * Peça ceràmica explosionada en CSS 3D (sense WebGL): esmalt, cos ceràmic i porus, amb les mostres
@@ -25,7 +25,6 @@ const BODY_SWATCH: Record<MaterialKey, string> = {
   gres: "/esmalts/gres-natural.webp",
   vidriat: "/esmalts/rojo-15.webp",
 };
-const BODY_EDGE: Record<MaterialKey, string> = { rojo15: "#9a4524", arena14: "#c79f72", gres: "#8c4a2a", vidriat: "#9a4524" };
 
 /** Porositat dibuixada per CSS: punts de diverses mides, sempre iguals (sense atzar). */
 const PORES = {
@@ -40,21 +39,9 @@ const PORES = {
 
 const layerZ = (i: number) => `calc(${LAYERS[i]!.z}px + var(--spread, 0) * ${LAYERS[i]!.spread * SPREAD}px)`;
 
-function Slab({ top, edge, thickness }: { top: CSSProperties; edge: string; thickness: number }) {
-  // Una llosa: la cara de dalt i els dos cantells que es veuen des d'aquest angle.
-  return (
-    <>
-      <div className="absolute inset-0 rounded-[3px] bg-cover bg-center" style={{ ...top, transform: `translateZ(${thickness}px)` }} />
-      <div
-        className="absolute inset-x-0 bottom-0 origin-bottom"
-        style={{ height: thickness, background: `linear-gradient(${edge}, color-mix(in srgb, ${edge} 70%, black))`, transform: "rotateX(-90deg) translateY(100%)" }}
-      />
-      <div
-        className="absolute inset-y-0 right-0 origin-right"
-        style={{ width: thickness, background: `linear-gradient(90deg, color-mix(in srgb, ${edge} 80%, black), ${edge})`, transform: "rotateY(90deg) translateX(100%)" }}
-      />
-    </>
-  );
+/** Reserva sense WebGL: només la cara de dalt de cada capa, amb ombra suau (sense cantells). */
+function Slab({ top }: { top: CSSProperties }) {
+  return <div className="absolute inset-0 rounded-[4px] bg-cover bg-center shadow-[0_18px_30px_-12px_rgba(46,32,22,0.45)]" style={top} />;
 }
 
 export interface PieceLabel {
@@ -78,7 +65,6 @@ export function ExplodedPiece({
   className?: string;
 }) {
   const glazed = MATERIALS[material].glazed;
-  const glazeHex = GLAZES.find((g) => g.file === glaze)?.hex ?? "#22409a";
   const dim = (i: number) => (active === undefined || active === i ? 1 : 0.5);
   const tops: CSSProperties[] = [
     {
@@ -88,7 +74,6 @@ export function ExplodedPiece({
     { backgroundImage: `url(${BODY_SWATCH[material]})` },
     { backgroundImage: `${PORES.image}, url(${BODY_SWATCH[material]})`, backgroundSize: `${PORES.size}, cover` },
   ];
-  const edges = [glazeHex, BODY_EDGE[material], BODY_EDGE[material]];
 
   return (
     <div className={`relative grid place-items-center [--piece:min(52vw,18rem)] ${className}`} aria-hidden="true">
@@ -100,7 +85,7 @@ export function ExplodedPiece({
               className="absolute inset-0 transition-opacity duration-500 [transform-style:preserve-3d]"
               style={{ transform: `translateZ(${layerZ(i)})`, opacity: i === 0 && !glazed ? 0 : dim(i) }}
             >
-              <Slab thickness={LAYERS[i]!.thickness} edge={edges[i]!} top={tops[i]!} />
+              <Slab top={tops[i]!} />
             </div>
           ))}
         </div>

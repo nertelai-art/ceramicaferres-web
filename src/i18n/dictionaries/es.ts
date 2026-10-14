@@ -34,8 +34,8 @@ export const es: Dictionary = {
     primary: "Hablemos del proyecto",
     secondary: "Ver colecciones",
     proof: "Obras en Barcelona, Madrid, Mallorca, Shanghái y Singapur",
-    scroll: "Baja para entrar en el taller",
-    videoLabel: "Piezas de celosía Volta en terracota y amarillo en el estudio; la luz del sol se mueve y las sombras de los arcos se deslizan por el suelo.",
+    imageAlt: "Piezas de celosía Empúries, de terracota roja y clara, que llegan dando saltitos y forman una composición de estudio: una hilera, un par delante, una pieza sola y un muro de cuatro.",
+    pieceCaption: "Celosía Empúries · Emiliana Design Studio · Delta de Bronce ADI 2024",
   },
   intro: {
     eyebrow: "Empresa familiar",
@@ -217,6 +217,7 @@ export const es: Dictionary = {
     glazesLead: "Muestras reales de la carta de acabados de Ferrés. Los esmaltes se hacen con óxidos y un barniz transparente, y se cuecen en monococción.",
     ctaTitle: "Solicita muestras",
     ctaText: "Las muestras físicas son la mejor manera de elegir: cada lote varía un poco de color.",
+    rotateHint: "Arrastra para girar la pieza",
   },
   projects: {
     eyebrow: "Proyectos",

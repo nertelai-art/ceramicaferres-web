@@ -30,7 +30,7 @@ export function Custom({ locale, t }: { locale: Locale; t: Dictionary }) {
       </div>
 
       <div className="container-x relative mt-14">
-        <ol className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-color:theme(colors.calc/40%)_transparent] lg:grid lg:grid-cols-4 lg:overflow-visible">
+        <ol className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-color:rgba(241,238,234,0.45)_transparent] lg:grid lg:grid-cols-4 lg:overflow-visible">
           {c.stages.map((stage, i) => (
             <li key={stage.title} className="reveal w-[78vw] shrink-0 snap-start sm:w-[46vw] lg:w-auto" style={{ "--i": i } as CSSProperties}>
               <figure>

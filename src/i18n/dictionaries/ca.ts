@@ -33,8 +33,8 @@ export const ca = {
     primary: "Parlem del projecte",
     secondary: "Veure col·leccions",
     proof: "Obres a Barcelona, Madrid, Mallorca, Xangai i Singapur",
-    scroll: "Baixa per entrar al taller",
-    videoLabel: "Peces de gelosia Volta en terracota i groc a l'estudi; la llum del sol es mou i les ombres dels arcs llisquen pel terra.",
+    imageAlt: "Peces de gelosia Empúries, de terracota vermella i clara, que arriben a saltirons i formen una composició d'estudi: una filera, un parell al davant, una peça sola i un mur de quatre.",
+    pieceCaption: "Gelosia Empúries · Emiliana Design Studio · Delta de Bronze ADI 2024",
   },
   intro: {
     eyebrow: "Empresa familiar",
@@ -216,6 +216,7 @@ export const ca = {
     glazesLead: "Mostres reals de la carta d'acabats de Ferrés. Els esmalts es fan amb òxids i un vernís transparent, i es couen en monococció.",
     ctaTitle: "Demana mostres",
     ctaText: "Les mostres físiques són la millor manera de triar: cada lot varia una mica de color.",
+    rotateHint: "Arrossega per girar la peça",
   },
   projects: {
     eyebrow: "Projectes",

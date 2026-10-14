@@ -4,7 +4,8 @@
 // El selector és a dalt de tot i la peça queda fixa al costat: no cal fer scroll per triar.
 // Triar és estat de React (canvia poc); la peça es separa amb una transició CSS en entrar.
 
-import { useEffect, useId, useState, type CSSProperties } from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import {
@@ -21,7 +22,10 @@ import {
   type Value,
 } from "@/data/materials";
 import { barSpan, formatValue } from "@/lib/format-value";
+import { useRenderMode } from "@/components/scroll/scroll-scene";
 import { ExplodedPiece } from "./ExplodedPiece";
+
+const AnatomyScene = dynamic(() => import("./AnatomyScene"), { ssr: false });
 
 /** Les sis propietats que es veuen en targeta; la resta, en llista. */
 const KEY_PROPERTIES: PropertyKey[] = ["flexural", "hardness", "absorption", "frost", "expansion", "firing"];
@@ -34,6 +38,12 @@ export function MaterialsExplorer({ locale, t }: { locale: Locale; t: Dictionary
   const [material, setMaterial] = useState<MaterialKey>("vidriat");
   const [glaze, setGlaze] = useState<GlazeFile>("azul-43");
   const groupId = useId();
+  const mode = useRenderMode();
+  // La peça s'obre en arribar (l'escena hi va amb suavitat); amb moviment reduït, el CSS ja la deixa oberta.
+  const spread = useRef(0);
+  useEffect(() => {
+    spread.current = 1;
+  }, []);
   const data = MATERIALS[material];
   const labels = { values: a.values, qualifiers: a.qualifiers, slipClass: a.slipClass, missing: a.missing };
   const glazeInfo = GLAZES.find((g) => g.file === glaze) ?? GLAZES[0];
@@ -43,11 +53,17 @@ export function MaterialsExplorer({ locale, t }: { locale: Locale; t: Dictionary
     <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       {/* Peça: fixa a escriptori */}
       <div className="lg:sticky lg:top-[calc(var(--header-h)+1rem)] lg:h-[calc(100svh-var(--header-h)-2rem)]">
-        <div className="h-full rounded-3xl bg-calc-2">
-          {/* La peça s'obre en arribar a la pàgina; amb moviment reduït ja hi és oberta. */}
-          <SpreadAnimator target={1}>
-            <ExplodedPiece material={material} glaze={glaze} labels={a.layers.map((l) => ({ title: l.title }))} className="h-[min(90vw,26rem)] md:-translate-x-[10%] lg:h-full" />
-          </SpreadAnimator>
+        <div className="relative h-full min-h-[min(90vw,26rem)] cursor-grab rounded-3xl bg-calc-2 active:cursor-grabbing">
+          {mode === "3d" ? (
+            <div className="absolute inset-0">
+              <AnatomyScene material={material} glaze={glaze} spread={spread} labels={a.layers.map((l) => ({ title: l.title }))} interactive />
+            </div>
+          ) : (
+            <SpreadAnimator target={1}>
+              <ExplodedPiece material={material} glaze={glaze} labels={a.layers.map((l) => ({ title: l.title }))} className="h-[min(90vw,26rem)] md:-translate-x-[10%] lg:h-full" />
+            </SpreadAnimator>
+          )}
+          {mode === "3d" && <p className="pointer-events-none absolute bottom-4 left-5 text-xs text-carbo/50">{t.materialsPage.rotateHint}</p>}
         </div>
       </div>
 

@@ -1,0 +1,109 @@
+{
+  "width": 2048,
+  "height": 1152,
+  "pieces": [
+    {
+      "id": "davant-1",
+      "group": "davant",
+      "x": 660,
+      "y": 640,
+      "w": 303,
+      "h": 472
+    },
+    {
+      "id": "davant-2",
+      "group": "davant",
+      "x": 934,
+      "y": 565,
+      "w": 278,
+      "h": 485
+    },
+    {
+      "id": "petita",
+      "group": "petita",
+      "x": 1226,
+      "y": 503,
+      "w": 277,
+      "h": 428
+    },
+    {
+      "id": "mur-1",
+      "group": "mur",
+      "x": 1345,
+      "y": 25,
+      "w": 164,
+      "h": 365
+    },
+    {
+      "id": "mur-2",
+      "group": "mur",
+      "x": 1484,
+      "y": 25,
+      "w": 276,
+      "h": 441
+    },
+    {
+      "id": "mur-3",
+      "group": "mur",
+      "x": 1345,
+      "y": 320,
+      "w": 162,
+      "h": 380
+    },
+    {
+      "id": "mur-4",
+      "group": "mur",
+      "x": 1490,
+      "y": 390,
+      "w": 270,
+      "h": 366
+    },
+    {
+      "id": "fons-1",
+      "group": "fons",
+      "x": 306,
+      "y": 430,
+      "w": 294,
+      "h": 470
+    },
+    {
+      "id": "fons-2",
+      "group": "fons",
+      "x": 553,
+      "y": 360,
+      "w": 256,
+      "h": 453
+    },
+    {
+      "id": "fons-3",
+      "group": "fons",
+      "x": 760,
+      "y": 320,
+      "w": 255,
+      "h": 422
+    }
+  ],
+  "shadows": [
+    {
+      "id": "ombra-esquerra",
+      "x": 0,
+      "y": 0,
+      "w": 1010,
+      "h": 1152
+    },
+    {
+      "id": "ombra-dreta",
+      "x": 1010,
+      "y": 0,
+      "w": 1038,
+      "h": 1152
+    }
+  ],
+  "plate": {
+    "topLeft": "#b4b0af",
+    "topRight": "#c5c1c1",
+    "bottomLeft": "#c1bcba",
+    "bottomRight": "#dcd8d9",
+    "center": "#c6c1be"
+  }
+}

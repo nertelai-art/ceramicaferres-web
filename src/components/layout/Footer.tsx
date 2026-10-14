@@ -79,6 +79,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
             {t.footer.privacy}
           </a>
           <span>{t.footer.cookies}</span>
+          <span>{t.workshop.note}</span>
         </p>
       </div>
     </footer>

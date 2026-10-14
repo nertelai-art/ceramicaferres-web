@@ -58,6 +58,12 @@ Els del gres (52,4 N/mm², Mohs 7) sí que són de la seva fitxa.
 ## Vídeo
 
 Els clips de `public/video/` són generats amb IA (MiniMax H3) a partir de fotografies pròpies de
-Ferrés publicades a la seva web: el de l'inici, de la foto d'estudi de les gelosies Volta; els quatre
-del taller, de fotos del taller. La web ho diu al costat dels clips del taller. No s'ha
+Ferrés publicades a la seva web: els quatre del taller, de fotos del taller. La web ho diu al costat dels clips del taller. No s'ha
 fet servir cap foto de projecte d'arquitecte com a base de vídeo.
+
+La primera pantalla no és vídeo: és la foto d'estudi de les gelosies Empúries de Ferrés
+(ceramicaferres.com/wp-content/uploads/2023/11/Ceramica_Ferres_Empuries_NewSunbreak.jpg) separada en
+capes per `scripts/prepare-hero.mjs`. Les parts que una peça amaga d'una altra (la base de la filera
+del fons i la peça de baix a l'esquerra del mur) es reconstrueixen per a l'animació copiant peces
+iguals de la mateixa foto; quan les peces arriben al seu lloc, la imatge és la foto original.
+Empúries: Emiliana Design Studio, Delta de Bronze dels Premis ADI 2024 (fitxa de producte).
