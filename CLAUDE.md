@@ -13,8 +13,8 @@ Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és pro
   amb la build de producció, no amb el servidor de desenvolupament.
 - `pnpm check` = typecheck + lint + tests. És el hook de pre-push (`.githooks/pre-push`, amb gitleaks).
 - `pnpm images` prepara les fotos de `_source/` a `public/images/` en tres amplades (640, 1080, 1600).
-- `pnpm hero` separa la foto de les Empúries en capes (`public/images/inici/`, `src/data/hero-pieces.json`);
-  amb `--debug` deixa el mapa de peces i la foto recomposta a `_source/hero-debug/`.
+- `pnpm hero` retalla les fotos de producte de les Empúries, amb l'ombra a part (`public/images/inici/`,
+  `src/data/hero-pieces.json`); amb `--debug` deixa cada retall a `_source/hero-debug/`.
 - Si un canvi a `globals.css` no surt al navegador ni reiniciant el servidor, és la memòria cau de
   webpack: atura'l, esborra `.next/dev` i `.next/cache` i torna'l a engegar (passat el 14-10-2026).
 - **Node 22.** Si el `node` global és un altre (nvm el pot haver canviat una altra sessió), posa

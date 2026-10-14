@@ -61,9 +61,10 @@ Els clips de `public/video/` són generats amb IA (MiniMax H3) a partir de fotog
 Ferrés publicades a la seva web: els quatre del taller, de fotos del taller. La web ho diu al costat dels clips del taller. No s'ha
 fet servir cap foto de projecte d'arquitecte com a base de vídeo.
 
-La primera pantalla no és vídeo: és la foto d'estudi de les gelosies Empúries de Ferrés
-(ceramicaferres.com/wp-content/uploads/2023/11/Ceramica_Ferres_Empuries_NewSunbreak.jpg) separada en
-capes per `scripts/prepare-hero.mjs`. Les parts que una peça amaga d'una altra (la base de la filera
-del fons i la peça de baix a l'esquerra del mur) es reconstrueixen per a l'animació copiant peces
-iguals de la mateixa foto; quan les peces arriben al seu lloc, la imatge és la foto original.
+La primera pantalla no és vídeo: són les fotos de producte de les gelosies Empúries de Ferrés (fitxa
+d'Empúries a ceramicaferres.com: model A i B en Arena 14, model B en Rojo 15), una peça sencera per
+foto, retallades amb la seva ombra per `scripts/prepare-hero.mjs`. Cap part de cap peça és inventada;
+la composició (filera, parell, peça sola i mur) sí que és nova, feta amb aquestes tres fotos. La
+imatge per compartir (`og.jpg`) surt de la seva foto d'estudi de les Empúries
+(ceramicaferres.com/wp-content/uploads/2023/11/Ceramica_Ferres_Empuries_NewSunbreak.jpg).
 Empúries: Emiliana Design Studio, Delta de Bronze dels Premis ADI 2024 (fitxa de producte).
