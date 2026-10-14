@@ -20,7 +20,7 @@ const ICONS = [
 export function Sustainability({ t }: { t: Dictionary }) {
   const s = t.sustainability;
   return (
-    <section aria-labelledby="sostenibilitat-titol" className="on-light bg-calc py-[clamp(5rem,11vw,9rem)] text-carbo">
+    <section aria-labelledby="sostenibilitat-titol" className="bg-calc py-[clamp(5rem,11vw,9rem)] text-carbo">
       <div className="container-x">
         <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
           <div>

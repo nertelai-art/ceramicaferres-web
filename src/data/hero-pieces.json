@@ -1,0 +1,64 @@
+{
+  "sources": {
+    "a-arena": {
+      "w": 543,
+      "h": 596,
+      "footLeft": [
+        95,
+        537
+      ],
+      "footRight": [
+        533,
+        543
+      ],
+      "capLeft": [
+        95,
+        22
+      ],
+      "capRight": [
+        533,
+        24
+      ]
+    },
+    "b-arena": {
+      "w": 595,
+      "h": 600,
+      "footLeft": [
+        146,
+        537
+      ],
+      "footRight": [
+        585,
+        538
+      ],
+      "capLeft": [
+        146,
+        22
+      ],
+      "capRight": [
+        585,
+        27
+      ]
+    },
+    "b-rojo": {
+      "w": 602,
+      "h": 602,
+      "footLeft": [
+        151,
+        545
+      ],
+      "footRight": [
+        592,
+        545
+      ],
+      "capLeft": [
+        151,
+        20
+      ],
+      "capRight": [
+        592,
+        31
+      ]
+    }
+  }
+}

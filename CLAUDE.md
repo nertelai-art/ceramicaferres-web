@@ -13,6 +13,10 @@ Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és pro
   amb la build de producció, no amb el servidor de desenvolupament.
 - `pnpm check` = typecheck + lint + tests. És el hook de pre-push (`.githooks/pre-push`, amb gitleaks).
 - `pnpm images` prepara les fotos de `_source/` a `public/images/` en tres amplades (640, 1080, 1600).
+- `pnpm hero` retalla les fotos de producte de les Empúries, amb l'ombra a part (`public/images/inici/`,
+  `src/data/hero-pieces.json`); amb `--debug` deixa cada retall a `_source/hero-debug/`.
+- Si un canvi a `globals.css` no surt al navegador ni reiniciant el servidor, és la memòria cau de
+  webpack: atura'l, esborra `.next/dev` i `.next/cache` i torna'l a engegar (passat el 14-10-2026).
 - **Node 22.** Si el `node` global és un altre (nvm el pot haver canviat una altra sessió), posa
   `C:\Users\nerte\AppData\Local\nvm\v22.23.2` al davant del PATH; no toquis l'enllaç global.
 
@@ -20,11 +24,14 @@ Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és pro
 
 - **Tot el que es diu del client és real** i surt de la seva web, de les seves fitxes tècniques o de
   fonts citades a `docs/fonts.md`. El que falta es marca com a pendent; no s'inventa.
+  Única excepció, decidida per l'usuari el 14-10-2026: la flexió i la duresa de la terracota i del
+  vidriat són valors orientatius del sector (`estimated` a `src/data/materials.ts`), surten amb «≈»
+  i una nota, i es substitueixen quan Ferrés doni els seus.
 - Dades (productes, projectes, propietats dels materials) a `src/data/`; textos a
   `src/i18n/dictionaries/`. El català és la referència de tipus: `es`, `en` i `fr` han de tenir
   les mateixes claus (hi ha una prova).
 - Les fotos de projectes porten sempre l'arquitecte i el fotògraf, com a la web del client.
-- Els clips de vídeo estan **generats amb IA a partir de fotos pròpies de Ferrés** (taller i estudi),
+- Els clips de vídeo estan **generats amb IA a partir de fotos pròpies de Ferrés** (taller),
   mai de fotos de projectes d'arquitectes. Al client se li diu així; no es presenten com a gravació.
 
 ## Escenes

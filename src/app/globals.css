@@ -2,7 +2,8 @@
 
 /*
  * Colors de la marca (vegeu docs/direccio-visual.md):
- * forn = negre càlid del forn · terra = el fill del logotip · argila = la peça cuita · calç = el fons de la seva web.
+ * calç = el fons de la seva web (base) · carbó = el seu text · terra = el fill del logotip ·
+ * argila = la peça cuita · forn = negre càlid per als pocs trossos foscos.
  */
 @theme {
   --color-forn: #16120f;
@@ -14,7 +15,8 @@
   --color-argila: #d7793f;
   --color-fang: #a89c90;
   --color-calc: #f1eeea;
-  --color-calc-2: #e6e1da;
+  --color-calc-2: #e7e2db;
+  --color-blanc: #faf8f5;
   --color-esmalt-blau: #22409a;
   --color-esmalt-groc: #e3b04b;
   --color-esmalt-blanc: #f4f1ea;
@@ -28,34 +30,34 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
     --header-h: 4.5rem;
   }
   html {
-    background: var(--color-forn);
-    color: var(--color-calc);
+    background: var(--color-calc);
+    color: var(--color-carbo);
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     scroll-padding-top: var(--header-h);
   }
   body {
     font-family: var(--font-sans);
-    background: var(--color-forn);
-    color: var(--color-calc);
+    background: var(--color-calc);
+    color: var(--color-carbo);
     font-feature-settings: "ss01";
     overflow-x: clip;
   }
   ::selection {
-    background: var(--color-argila);
-    color: var(--color-forn);
+    background: var(--color-terra);
+    color: var(--color-calc);
   }
   :focus-visible {
-    outline: 2px solid var(--color-argila);
+    outline: 2px solid var(--color-terra);
     outline-offset: 3px;
     border-radius: 2px;
   }
-  .on-light :focus-visible {
-    outline-color: var(--color-terra);
+  .on-dark :focus-visible {
+    outline-color: var(--color-argila);
   }
   img,
   video {
@@ -110,18 +112,18 @@
     transform: scale(0.97);
   }
   .btn-primary {
-    background: var(--color-argila);
-    color: var(--color-forn);
-  }
-  .btn-primary:hover {
-    background: var(--color-calc);
-  }
-  .on-light .btn-primary {
     background: var(--color-terra);
     color: var(--color-calc);
   }
-  .on-light .btn-primary:hover {
+  .btn-primary:hover {
     background: var(--color-carbo);
+  }
+  .on-dark .btn-primary {
+    background: var(--color-argila);
+    color: var(--color-forn);
+  }
+  .on-dark .btn-primary:hover {
+    background: var(--color-calc);
   }
   .btn-ghost {
     border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
@@ -158,8 +160,8 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.07;
-    mix-blend-mode: overlay;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
@@ -169,14 +171,259 @@
     left: 0.75rem;
     z-index: 100;
     transform: translateY(-200%);
-    background: var(--color-calc);
-    color: var(--color-forn);
+    background: var(--color-carbo);
+    color: var(--color-calc);
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     font-weight: 600;
   }
   .skip-link:focus {
     transform: none;
+  }
+}
+
+@layer base {
+  /*
+   * Barra de desplaçament: el botó és una columna de peces Volta en terracota, amb el buit de l'arc
+   * i la junta del color del carril (Chrome, Edge, Safari). Continua sent la barra del navegador:
+   * s'arrossega, es clica i funciona amb el teclat. Firefox no accepta imatges: només colors.
+   */
+  ::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-calc-2);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-calc-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='26' viewBox='0 0 14 26'%3E%3Cpath fill='%23903d00' fill-rule='evenodd' d='M0 0h14v25H0z M3.6 22V8.6a3.4 3.4 0 0 1 6.8 0V22z'/%3E%3C/svg%3E") repeat-y center top / 14px 26px;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover,
+  ::-webkit-scrollbar-thumb:active {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='26' viewBox='0 0 14 26'%3E%3Cpath fill='%236e2f02' fill-rule='evenodd' d='M0 0h14v25H0z M3.6 22V8.6a3.4 3.4 0 0 1 6.8 0V22z'/%3E%3C/svg%3E");
+  }
+  ::-webkit-scrollbar-thumb:horizontal {
+    background: var(--color-calc-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='14' viewBox='0 0 26 14'%3E%3Cpath fill='%23903d00' fill-rule='evenodd' d='M0 0h25v14H0z M4 3.6h13.4a3.4 3.4 0 0 1 0 6.8H4z'/%3E%3C/svg%3E") repeat-x left center / 26px 14px;
+  }
+  ::-webkit-scrollbar-thumb:horizontal:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='14' viewBox='0 0 26 14'%3E%3Cpath fill='%236e2f02' fill-rule='evenodd' d='M0 0h25v14H0z M4 3.6h13.4a3.4 3.4 0 0 1 0 6.8H4z'/%3E%3C/svg%3E");
+  }
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-corner {
+    display: none;
+    background: transparent;
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-color: var(--color-terra) var(--color-calc-2);
+    }
+  }
+}
+
+@layer components {
+  /*
+   * Primera pantalla: les peces de les Empúries entren fent saltirons (temps i camins a
+   * hero-phases.ts). Cada peça té dues capes de moviment: el contenidor fa el camí (`translate`,
+   * `scale`) i la imatge fa els salts (`translate`, `scale` i `rotate` per separat, perquè no es
+   * trepitgin). L'ombra fa el mateix camí, però es queda a terra: quan la peça salta, s'esvaeix una
+   * mica. Les unitats `cqw` són de l'escenari: 2048 unitats = 100cqw.
+   */
+  .hero {
+    background: radial-gradient(ellipse 85% 85% at 70% 80%, #f4f1ed 0%, #e9e4de 48%, #dcd6cf 100%);
+  }
+  .hero-stage {
+    --stage-w: min(70vw, calc((100svh - var(--header-h) - 3rem) * 1.62));
+    container-type: inline-size;
+    position: relative;
+    aspect-ratio: 2048 / 1152;
+    width: 124vw;
+    margin: var(--header-h) 0 0 -12vw;
+    pointer-events: none;
+  }
+  @media (min-width: 1024px) {
+    .hero-stage {
+      position: absolute;
+      bottom: max(1rem, 2svh);
+      right: calc(var(--stage-w) * -0.08);
+      width: var(--stage-w);
+      margin: 0;
+    }
+  }
+  .hero-stage > div {
+    position: absolute;
+    transform-origin: 50% 100%;
+  }
+  .hero-stage img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* El centre de la base de la peça, dins el retall (la resta és ombra). */
+    transform-origin: 58% 90%;
+  }
+  .hero-piece[data-entry="walk"],
+  .hero-shadow {
+    animation: hero-travel calc(var(--hops) * var(--hop)) cubic-bezier(0.3, 0.1, 0.45, 1) var(--delay) both;
+  }
+  .hero-piece[data-entry="walk"] > img {
+    animation:
+      hero-hop var(--hop) linear var(--delay) var(--hops) both,
+      hero-waddle calc(var(--hop) * 2) ease-in-out var(--delay) calc(var(--hops) / 2) both,
+      hero-settle 0.42s ease-out calc(var(--delay) + var(--hops) * var(--hop)) forwards;
+  }
+  .hero-piece[data-entry="drop"] > img {
+    animation: hero-drop var(--drop) linear var(--delay) both;
+  }
+  .hero-shadow > img {
+    animation: hero-shadow-hop var(--hop) linear var(--delay) var(--hops) both;
+  }
+  /* Peu de foto: a dalt a la dreta, sobre el mur (l'únic racó lliure a totes les amplades). */
+  .hero-caption {
+    position: absolute;
+    right: 11%;
+    top: 1.5%;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    text-align: right;
+    color: color-mix(in srgb, var(--color-carbo) 62%, transparent);
+    animation: hero-fade 0.6s ease-out var(--end) both;
+  }
+  @media (max-width: 1023px) {
+    /* A mòbil, sota l'escenari: a dalt hi ha la capçalera. */
+    .hero-caption {
+      right: 10%;
+      top: calc(100% - 0.35rem);
+      width: auto;
+      font-size: 0.6875rem;
+      white-space: nowrap;
+    }
+  }
+}
+
+@keyframes hero-travel {
+  from {
+    translate: calc(var(--from-x) * 100cqw / 2048) calc(var(--from-y) * 100cqw / 2048);
+    scale: var(--from-s);
+    opacity: var(--from-o);
+  }
+  18% {
+    opacity: 1;
+  }
+  to {
+    translate: 0 0;
+    scale: 1;
+    opacity: 1;
+  }
+}
+/* Un saltiró: s'arronsa en tocar a terra, s'estira en sortir i cau més de pressa que no puja. */
+@keyframes hero-hop {
+  0% {
+    translate: 0 0;
+    scale: 1 1;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.4, 1);
+  }
+  6% {
+    scale: 1.05 0.93;
+  }
+  18% {
+    scale: 0.97 1.04;
+  }
+  50% {
+    translate: 0 calc(var(--hop-h) * -100cqw / 2048);
+    scale: 1 1;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.8, 0.3);
+  }
+  100% {
+    translate: 0 0;
+    scale: 1 1;
+  }
+}
+/* Gronxa d'un costat a l'altre a cada passa, com qui camina amb les cames rígides. */
+@keyframes hero-waddle {
+  0%,
+  50%,
+  100% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: -3deg;
+  }
+  75% {
+    rotate: 3deg;
+  }
+}
+@keyframes hero-settle {
+  0% {
+    transform: scale(1.05, 0.93);
+  }
+  45% {
+    transform: scale(0.98, 1.03);
+  }
+  100% {
+    transform: none;
+  }
+}
+/* Cau de dalt, rebota dues vegades i s'atura. */
+@keyframes hero-drop {
+  0% {
+    translate: 0 calc(var(--from-y) * 100cqw / 2048);
+    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+  }
+  52% {
+    translate: 0 0;
+    scale: 1.06 0.9;
+    animation-timing-function: cubic-bezier(0.2, 0.6, 0.35, 1);
+  }
+  58% {
+    scale: 0.97 1.04;
+  }
+  72% {
+    translate: 0 calc(-48 * 100cqw / 2048);
+    scale: 1 1;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.85, 0.4);
+  }
+  86% {
+    translate: 0 0;
+    scale: 1.03 0.96;
+    animation-timing-function: cubic-bezier(0.2, 0.6, 0.35, 1);
+  }
+  93% {
+    translate: 0 calc(-10 * 100cqw / 2048);
+    scale: 1 1;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.85, 0.4);
+  }
+  100% {
+    translate: 0 0;
+    scale: 1 1;
+  }
+}
+/* L'ombra d'una peça que salta: més petita i més clara quan la peça és a dalt. */
+@keyframes hero-shadow-hop {
+  0%,
+  100% {
+    opacity: 1;
+    scale: 1;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.4, 1);
+  }
+  50% {
+    opacity: 0.5;
+    scale: 0.94;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.8, 0.3);
+  }
+}
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Sense entrada: la composició final, tal com és a la foto. */
+  .hero-stage *,
+  .hero-caption {
+    animation: none !important;
   }
 }
 

@@ -30,7 +30,17 @@ Tot el que la web diu de Ceràmica Ferrés té una font. Consultades el 14-10-20
 | Garbet: menció al Premi Catalunya d'Ecodisseny 2021 (modular, desmuntable, reparable i reutilitzable) | [Agència de Residus de Catalunya](https://www.youtube.com/watch?v=ybia58wNqiI) |
 | Instagram @ferres_ceramica | Catàleg 2021 del client i Ceramistes La Bisbal |
 
+## Valors orientatius (no són de Ferrés)
+
+A petició de l'usuari (14-10-2026), la **resistència a la flexió** i la **duresa Mohs** de la terracota
+Rojo 15, la terracota Arena 14 i el vidriat són valors orientatius del sector (rajola extrudida de
+fang cuit, grup AIII de l'EN 14411) mentre Ferrés no en doni els seus: 15 / 12 / 15 N/mm² i
+Mohs 6 / 5 / 5. A la web surten amb «≈» i una nota. Es canvien a `src/data/materials.ts` (`estimated`).
+Els del gres (52,4 N/mm², Mohs 7) sí que són de la seva fitxa.
+
 ## Pendent de confirmar amb el client
+
+- La resistència a la flexió i la duresa de la terracota i del vidriat (vegeu l'apartat anterior).
 
 - Com es fa una filera o un motlle a Ferrés (qui la dibuixa, de quin material és, quant triga). La
   secció «De la filera a la peça» explica el principi de l'extrusió amb fotos seves; els detalls del
@@ -47,6 +57,14 @@ Tot el que la web diu de Ceràmica Ferrés té una font. Consultades el 14-10-20
 
 ## Vídeo
 
-Els cinc clips (`public/video/`) són generats amb IA (MiniMax H3) a partir de fotografies pròpies del
-taller de Ferrés publicades a la seva web. La web ho diu al costat dels clips del taller. No s'ha
+Els clips de `public/video/` són generats amb IA (MiniMax H3) a partir de fotografies pròpies de
+Ferrés publicades a la seva web: els quatre del taller, de fotos del taller. La web ho diu al costat dels clips del taller. No s'ha
 fet servir cap foto de projecte d'arquitecte com a base de vídeo.
+
+La primera pantalla no és vídeo: són les fotos de producte de les gelosies Empúries de Ferrés (fitxa
+d'Empúries a ceramicaferres.com: model A i B en Arena 14, model B en Rojo 15), una peça sencera per
+foto, retallades amb la seva ombra per `scripts/prepare-hero.mjs`. Cap part de cap peça és inventada;
+la composició (filera, parell, peça sola i mur) sí que és nova, feta amb aquestes tres fotos. La
+imatge per compartir (`og.jpg`) surt de la seva foto d'estudi de les Empúries
+(ceramicaferres.com/wp-content/uploads/2023/11/Ceramica_Ferres_Empuries_NewSunbreak.jpg).
+Empúries: Emiliana Design Studio, Delta de Bronze dels Premis ADI 2024 (fitxa de producte).

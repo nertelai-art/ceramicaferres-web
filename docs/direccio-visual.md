@@ -4,9 +4,9 @@ Surt del client, no del costum. Cada tria diu d'on ve.
 
 | | Tria | D'on ve |
 |---|---|---|
-| Color dominant | **Forn** `#16120F`, negre càlid | El text de la marca és carbó (`#2E2E2D`) i el logotip, terracota: marca fosca i taronja. El procés acaba dins d'un forn. |
-| Accent | **Terra** `#903D00` (panells, titulars grans) i **Argila cuita** `#D7793F` (text petit sobre fosc) | `#903D00` és el `fill` del logotip SVG de la seva web. L'argila cuita és el to de les peces acabades a les seves fotos. |
-| Superfície clara | **Calç** `#F1EEEA` | El fons exacte de la seva web actual. Va on hi ha fotos d'estudi (fons gris clar) i fitxes tècniques. |
+| Color dominant | **Calç** `#F1EEEA`, alternant amb `#E7E2DB` per seccions | El fons exacte de la seva web actual, i el to de les seves fotos d'estudi (fons gris clar). L'usuari va demanar una base més clara el 14-10-2026; abans era fosca. |
+| Text i ancoratge fosc | **Carbó** `#2E2E2D` (text i peu de pàgina) | El color del text de la seva web. |
+| Accent | **Terra** `#903D00` (botons, titulars de secció, panells) i **Argila cuita** `#D7793F` (només sobre fosc) | `#903D00` és el `fill` del logotip SVG de la seva web. L'argila cuita és el to de les peces acabades a les seves fotos. |
 | Tipografia | Titular **Bricolage Grotesque** (pesada i estreta, `opsz` alt). Text **Figtree**. | Les lletres del logotip FERRÉS són gruixudes i tallades amb bisells: Bricolage en pes alt hi rima sense copiar-lo. Figtree és l'alternativa oberta més propera a Avenir, la lletra de la seva web. |
 | Motiu gràfic | **Perfils de secció** en línia fina (la forma de la filera) i línies horitzontals d'extrusió | Les celosies de Ferrés són perfils extruïts: el dibuix de secció és literalment el motlle. La seva web ja fa servir dibuixos de línia per a cada família. |
 
@@ -23,8 +23,8 @@ tècniques van en Figtree amb `tabular-nums`.
 
 | Secció | Tècnica | Per què |
 |---|---|---|
-| Inici | Vídeo lligat al scroll (`scroll-video`) | La foto pròpia de la barra de fang amb «CERAMICA FERRES» imprès: moviment real, poc a inventar. |
+| Inici | Entrada en carregar, CSS (`hero-phases.ts`) | Les seves fotos de producte de les Empúries (peces senceres): entren una a una fent saltirons, com si caminessin, i formen una composició d'estudi com la de la seva foto de presentació. Sense vídeo ni scroll. (Abans: la barra de fang a l'extrusora, massa fosca; les Volta, que ja surten a «Com es fa»; un clip del revestiment Albera; i la foto d'estudi tallada a trossos, on es notaven els retalls.) |
 | De la filera a la peça | 3D (`scroll-3d-scenes`) | Una celosia és un perfil extruït: es modela exactament com es fabrica (`ExtrudeGeometry`). |
 | El taller | Vídeo lligat al scroll, muntatge de clips curts | Fotos reals de taller animades; fos entre passos, no recorregut continu. |
-| Anatomia del material | 3D (vista explosionada) + dades en HTML | Capes (esmalt, cos ceràmic, porus) i propietats que es poden llegir i indexar. |
+| Anatomia del material | 3D (three.js) amb reserva en CSS 3D | A l'inici, versió curta que s'explica sola; el detall interactiu (material, esmalt, comparativa) és a la pàgina de materials. |
 | Projectes, col·leccions, a mida, sostenibilitat | CSS + `IntersectionObserver` | Entrades discretes: les escenes fortes són dues. |

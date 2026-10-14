@@ -32,7 +32,22 @@ describe("formatValue", () => {
     expect(formatValue(MATERIALS.gres.values.slip, "ca", labels)).toBe("Rd 60 · Classe 3");
   });
   it("diu que falta quan la fitxa no dona el valor", () => {
-    expect(formatValue(MATERIALS.rojo15.values.flexural, "ca", labels)).toBe("No consta");
+    expect(formatValue(MATERIALS.rojo15.values.expansion, "ca", labels)).toBe("No consta");
+  });
+  it("marca amb ≈ els valors orientatius, i només aquests", () => {
+    expect(formatValue(MATERIALS.rojo15.values.flexural, "ca", labels)).toBe("≈ 15 N/mm²");
+    expect(formatValue(MATERIALS.gres.values.flexural, "ca", labels).startsWith("≈")).toBe(false);
+  });
+  it("els valors orientatius només omplen flexió i duresa, mai una dada que ja dona la fitxa", () => {
+    for (const material of MATERIAL_KEYS)
+      for (const property of PROPERTY_KEYS) {
+        const value = MATERIALS[material].values[property];
+        if (value.kind === "number" && value.estimated) expect(["flexural", "hardness"]).toContain(property);
+      }
+    for (const property of ["flexural", "hardness"] as const) {
+      const gres = MATERIALS.gres.values[property];
+      expect(gres.kind === "number" && !gres.estimated).toBe(true);
+    }
   });
   it("cap propietat de cap material queda sense text", () => {
     for (const material of MATERIAL_KEYS)
