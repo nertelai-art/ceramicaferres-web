@@ -1,0 +1,44 @@
+# Ceràmica Ferrés — web
+
+Proposta de web nova per a Ceràmica Ferrés (ceramicaferres.com): fabricant familiar de ceràmica
+per a l'arquitectura des de 1956, a Corçà (Girona), dins la tradició de la Bisbal. Públic: arquitectes,
+interioristes i constructors. Idiomes: català, castellà, anglès i francès.
+
+Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és propi d'aquest repositori.
+
+## Ordres
+
+- `pnpm dev` (Next amb `--webpack`: el Control d'aplicacions de Windows bloqueja el SWC natiu).
+- `pnpm build:local` per provar la build en local; `pnpm start` per mirar-la. Les animacions es jutgen
+  amb la build de producció, no amb el servidor de desenvolupament.
+- `pnpm check` = typecheck + lint + tests. És el hook de pre-push (`.githooks/pre-push`, amb gitleaks).
+- `pnpm images` prepara les fotos de `_source/` a `public/images/` en tres amplades (640, 1080, 1600).
+- **Node 22.** Si el `node` global és un altre (nvm el pot haver canviat una altra sessió), posa
+  `C:\Users\nerte\AppData\Local\nvm\v22.23.2` al davant del PATH; no toquis l'enllaç global.
+
+## Contingut
+
+- **Tot el que es diu del client és real** i surt de la seva web, de les seves fitxes tècniques o de
+  fonts citades a `docs/fonts.md`. El que falta es marca com a pendent; no s'inventa.
+- Dades (productes, projectes, propietats dels materials) a `src/data/`; textos a
+  `src/i18n/dictionaries/`. El català és la referència de tipus: `es`, `en` i `fr` han de tenir
+  les mateixes claus (hi ha una prova).
+- Les fotos de projectes porten sempre l'arquitecte i el fotògraf, com a la web del client.
+- Els clips de vídeo estan **generats amb IA a partir de fotos pròpies de Ferrés** (taller i estudi),
+  mai de fotos de projectes d'arquitectes. Al client se li diu així; no es presenten com a gravació.
+
+## Escenes
+
+- three.js només s'importa dins `src/components/**/*Scene.tsx` i `src/components/three/` (regla
+  d'ESLint) i les escenes es carreguen amb `next/dynamic`.
+- La coreografia va en fitxers `*-phases.ts` de TypeScript pur, amb proves.
+- `frameloop="demand"`, progrés en refs, DOM tocat directament des del scroll; mai `setState` per
+  fotograma. Atzar amb llavor (`src/lib/random.ts`).
+- Cada escena té l'estat final a l'HTML, respecta `prefers-reduced-motion` i té reserva sense WebGL.
+
+## Git
+
+- Branca d'integració: `developer`. A `main` no s'hi puja a mà.
+- De moment el repositori és **només local** (decisió de l'usuari, 14-10-2026): ni GitHub ni Vercel
+  fins que ho digui.
+- El web no s'indexa (`noindex`) mentre no sigui al domini del client (`SITE_INDEXABLE`).

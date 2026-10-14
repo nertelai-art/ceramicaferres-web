@@ -1,0 +1,21 @@
+[
+  { "out": "volta-estudi", "src": "_source/web/home-hero/Ceramica_Ferres_Volta_New.jpg" },
+  { "out": "fabrica-corca", "src": "_source/web/about/Ceramica_Ferres_Nosotros_8.jpg" },
+  { "out": "colleccions/gelosies", "src": "_source/web/home/Ceramica_Ferres_Empuries_NewSunbreak.jpg" },
+  { "out": "colleccions/rajoles", "src": "_source/web/home/former-slides/Ceramica_Ferres_Mongo_NewTiles.jpg" },
+  { "out": "colleccions/lavabos", "src": "_source/web/productos/lavabos/ceramicos/01_Lavabo_Ceramico_Ceramica_Ferres.jpg" },
+  { "out": "colleccions/elements", "src": "_source/web/home-hero/Ceramica_Ferres_Corners_New.jpg" },
+  { "out": "projectes/my-brain", "src": "_source/web/proyectos/my-brain-barcelona/Ceramica_Ferres_Celosia_Volta_Proyecto_TwoBo-01.jpg" },
+  { "out": "projectes/dynamed", "src": "_source/web/proyectos/dynamed-shanghai/Ceramica_Ferres_Celosia_Garbet_Proyecto_Dynamed_02.jpg" },
+  { "out": "projectes/escola-gavina", "src": "_source/web/proyectos/pabellon-docente-polivalente-escola-gavina-valencia/Ceramica_Ferres_Celosias_Estartit_Proyecto_Escola_Gavina_01.jpg" },
+  { "out": "projectes/four-seasons", "src": "_source/web/proyectos/hotel-four-seasons-mallorca/Ceramica_Ferres_Celosia_Empuries_Proyecto_Lamela-01.jpg" },
+  { "out": "projectes/club-rangoon", "src": "_source/web/proyectos/club-rangoon-singapur/projecte_ceramica_club_rangoon_02.jpg" },
+  { "out": "projectes/museu-alacant", "src": "_source/web/proyectos/museo-de-las-colecciones-naturales-de-la-universidad-alicante/Ceramica_Ferres_Celosias_Cuadrada_Proyecto_Museo_Colecciones_Naturales_01.jpg" },
+  { "out": "projectes/disfrutar", "src": "_source/web/proyectos/restaurante-disfrutar-barcelona/Ceramica_Ferres_Celosias_Proyecto_Restaurante_Disfrutar_01.jpg" },
+  { "out": "projectes/casa-pin-8", "src": "_source/web/proyectos/casa-pin-8/Ceramica_Ferres_Celosia_Montgri_Proyecto_Pin8_01.jpg" },
+  { "out": "projectes/central-bar", "src": "_source/web/proyectos/central-bar-valencia/Ceramica_Ferres_Celosias_Rosas_Proyecto_Bar_Central_01.jpg" },
+  { "out": "a-mida/dibuix", "src": "_source/web/a-medida/Ceramica_Ferres_Productos_a_medida.jpg" },
+  { "out": "a-mida/prototip", "src": "_source/web/a-medida/Ceramica_Ferres_Productos_a_medida_4.jpg" },
+  { "out": "a-mida/produccio", "src": "_source/web/a-medida/Ceramica_Ferres_Productos_a_medida_6.jpg" },
+  { "out": "a-mida/installacio", "src": "_source/web/proyectos/exposicion-inspired-in-barcelona-mediterranean-design-milan/Ceramica_Ferres_Celosias_Garbet_Mediterranean_Design_01-1.jpg" }
+]

@@ -1,0 +1,5 @@
+# pnpm 10 no executa scripts d'instal·lació sense permís explícit.
+# sharp i unrs-resolver: el postinstall només comprova el binari natiu (ja ve per optionalDependencies).
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
