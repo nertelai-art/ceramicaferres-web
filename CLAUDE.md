@@ -46,6 +46,14 @@ Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és pro
 ## Git
 
 - Branca d'integració: `developer`. A `main` no s'hi puja a mà.
-- De moment el repositori és **només local** (decisió de l'usuari, 14-10-2026): ni GitHub ni Vercel
-  fins que ho digui.
+- Repositori públic a GitHub (`nertelai-art/ceramicaferres-web`, des del 14-10-2026); branca per defecte
+  `developer`. A `main` s'hi arriba amb una PR de llançament des de `developer` (merge commit, CI en verd),
+  i només quan l'usuari ho diu.
+- Vercel (`ceramicaferres-web`): producció només des de `main` (ho vigila `ignoreCommand` de
+  `vercel.json`) a https://ceramicaferres-web.vercel.app, oberta sense inici de sessió (decisió de
+  l'usuari). Cada branca té la seva previsualització.
+- El connector de Vercel no té permís per crear ni modificar el projecte: es fa amb la CLI,
+  `pnpm --config.cache-dir=C:/Users/nerte/.pnpm-dlx dlx vercel@<versió> …` (la memòria cau per defecte
+  supera el límit de 260 caràcters de Windows). Les crides `vercel api` des de PowerShell: Git Bash
+  converteix el camí `/v9/…` en un camí de Windows.
 - El web no s'indexa (`noindex`) mentre no sigui al domini del client (`SITE_INDEXABLE`).
