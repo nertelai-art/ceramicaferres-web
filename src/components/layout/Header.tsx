@@ -46,16 +46,16 @@ export function Header({ locale, t }: { locale: Locale; t: Dictionary }) {
     <header
       ref={header}
       data-scrolled="false"
-      className="group fixed inset-x-0 top-0 z-50 transition-colors duration-500 data-[scrolled=true]:bg-forn/85 data-[scrolled=true]:backdrop-blur-md"
+      className="group fixed inset-x-0 top-0 z-50 transition-colors duration-500 data-[scrolled=true]:bg-calc/85 data-[scrolled=true]:shadow-[0_1px_0_rgba(46,46,45,0.08)] data-[scrolled=true]:backdrop-blur-md"
     >
       <div className="container-x flex h-[var(--header-h)] items-center justify-between gap-6">
-        <Link href={homePath(locale)} className="text-calc transition-colors hover:text-argila" aria-label={t.a11y.home} onClick={close}>
+        <Link href={homePath(locale)} className="text-terra transition-colors hover:text-carbo" aria-label={t.a11y.home} onClick={close}>
           <Logo className="h-8 w-auto sm:h-9" title={t.a11y.home} />
         </Link>
 
         <nav aria-label={t.a11y.menu} className="hidden items-center gap-7 text-sm font-medium lg:flex">
           {LINKS.map((key) => (
-            <a key={key} href={sectionPath(locale, key)} className="text-calc/80 transition-colors hover:text-calc">
+            <a key={key} href={sectionPath(locale, key)} className="text-carbo/75 transition-colors hover:text-terra">
               {t.nav[key]}
             </a>
           ))}
@@ -70,7 +70,7 @@ export function Header({ locale, t }: { locale: Locale; t: Dictionary }) {
                   hrefLang={LOCALE_INFO[other].intl}
                   lang={other}
                   aria-current={other === locale ? "page" : undefined}
-                  className="rounded px-1.5 py-1 text-calc/55 transition-colors hover:text-calc aria-[current=page]:text-argila"
+                  className="rounded px-1.5 py-1 text-carbo/50 transition-colors hover:text-carbo aria-[current=page]:text-terra"
                 >
                   <abbr title={LOCALE_INFO[other].name} className="no-underline">
                     {LOCALE_INFO[other].label}
@@ -84,7 +84,7 @@ export function Header({ locale, t }: { locale: Locale; t: Dictionary }) {
           </a>
           <button
             type="button"
-            className="relative grid size-11 place-items-center rounded-full border border-calc/25 text-calc lg:hidden"
+            className="relative grid size-11 place-items-center rounded-full border border-carbo/25 text-carbo lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? t.a11y.closeMenu : t.a11y.menu}
@@ -99,10 +99,10 @@ export function Header({ locale, t }: { locale: Locale; t: Dictionary }) {
 
     </header>
       {/* Menú de mòbil: fora del <header>, perquè el seu backdrop-filter faria de bloc contenidor del `fixed`. */}
-      <div id={menuId} hidden={!open} className="fixed inset-0 top-[var(--header-h)] z-40 overflow-y-auto bg-forn lg:hidden">
+      <div id={menuId} hidden={!open} className="fixed inset-0 top-[var(--header-h)] z-40 overflow-y-auto bg-calc lg:hidden">
         <nav aria-label={t.a11y.menu} className="container-x flex flex-col gap-1 py-8">
           {[...LINKS, "contact" as const].map((key) => (
-            <a key={key} href={sectionPath(locale, key)} onClick={close} className="display border-b border-calc/10 py-4 text-4xl">
+            <a key={key} href={sectionPath(locale, key)} onClick={close} className="display border-b border-carbo/10 py-4 text-4xl">
               {t.nav[key]}
             </a>
           ))}
@@ -115,7 +115,7 @@ export function Header({ locale, t }: { locale: Locale; t: Dictionary }) {
                   lang={other}
                   onClick={close}
                   aria-current={other === locale ? "page" : undefined}
-                  className="block rounded-full border border-calc/20 px-4 py-2 text-sm font-semibold aria-[current=page]:border-argila aria-[current=page]:text-argila"
+                  className="block rounded-full border border-carbo/20 px-4 py-2 text-sm font-semibold aria-[current=page]:border-terra aria-[current=page]:text-terra"
                 >
                   {LOCALE_INFO[other].name}
                 </Link>

@@ -17,7 +17,7 @@ const sans = Figtree({ subsets: ["latin", "latin-ext"], variable: "--font-figtre
 
 export const dynamicParams = false;
 export const generateStaticParams = () => LOCALES.map((lang) => ({ lang }));
-export const viewport: Viewport = { themeColor: "#16120f", colorScheme: "dark" };
+export const viewport: Viewport = { themeColor: "#f1eeea", colorScheme: "light" };
 
 export async function generateMetadata({ params }: Pick<LayoutProps<"/[lang]">, "params">): Promise<Metadata> {
   const { lang } = await params;

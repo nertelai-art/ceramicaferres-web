@@ -1,7 +1,9 @@
 /**
  * Propietats dels materials de Ferrés, copiades de les seves fitxes tècniques (descarregades de
- * ceramicaferres.com el 14-10-2026). Res d'aquí és un valor «típic» del sector: si la fitxa no
- * el dona, el valor és `missing` i la web ho diu.
+ * ceramicaferres.com el 14-10-2026). Si la fitxa no dona un valor, és `missing` i la web ho diu.
+ * Excepció: la resistència a la flexió i la duresa de la terracota i del vidriat són valors
+ * orientatius del sector (`estimated`), a petició de l'usuari, fins que Ferrés doni els seus.
+ * Rang de referència: rajola extrudida del grup AIII de l'EN 14411 (fang cuit).
  *
  * - Fitxa Volta (terracota Rojo 15 i Arena 14, i peça vidriada): ceramicaferres.com/download/20641/
  * - Fitxa Gres Natural («Gres Girona»): ceramicaferres.com/download/14433/
@@ -38,7 +40,18 @@ export type TextValueKey =
   | "origin.teruel";
 
 export type Value =
-  | { kind: "number"; value: number; max?: number; unit: Unit; qualifier?: "average" | "above" }
+  | {
+      kind: "number";
+      value: number;
+      max?: number;
+      unit: Unit;
+      qualifier?: "average" | "above";
+      /**
+       * Valor orientatiu del sector, no de Ferrés: es fa servir mentre el client no en doni la dada
+       * (decisió de l'usuari, 14-10-2026). A la web surt amb «≈» i una nota.
+       */
+      estimated?: true;
+    }
   | { kind: "code"; value: string }
   | { kind: "text"; key: TextValueKey }
   | { kind: "missing" };
@@ -113,8 +126,8 @@ export const MATERIALS: Record<MaterialKey, Material> = {
     sources: ["volta", "sustainability", "ara"],
     values: {
       absorption: { kind: "number", value: 10, max: 13, unit: "%" },
-      flexural: missing,
-      hardness: missing,
+      flexural: { kind: "number", value: 15, unit: "N/mm²", estimated: true },
+      hardness: { kind: "number", value: 6, unit: "Mohs", estimated: true },
       abrasion: { kind: "text", key: "complies" },
       frost: { kind: "text", key: "resists" },
       expansion: missing,
@@ -131,8 +144,8 @@ export const MATERIALS: Record<MaterialKey, Material> = {
     sources: ["volta", "sustainability", "ara"],
     values: {
       absorption: { kind: "number", value: 14.03, unit: "%" },
-      flexural: missing,
-      hardness: missing,
+      flexural: { kind: "number", value: 12, unit: "N/mm²", estimated: true },
+      hardness: { kind: "number", value: 5, unit: "Mohs", estimated: true },
       abrasion: missing,
       frost: { kind: "text", key: "noDefects" },
       expansion: { kind: "number", value: 5.2, max: 5.9, unit: "×10⁻⁶/°C" },
@@ -168,8 +181,8 @@ export const MATERIALS: Record<MaterialKey, Material> = {
     sources: ["volta"],
     values: {
       absorption: { kind: "number", value: 13, unit: "%", qualifier: "average" },
-      flexural: missing,
-      hardness: missing,
+      flexural: { kind: "number", value: 15, unit: "N/mm²", estimated: true },
+      hardness: { kind: "number", value: 5, unit: "Mohs", estimated: true },
       abrasion: { kind: "code", value: "PEI 1–2" },
       frost: { kind: "text", key: "frostGlazed" },
       expansion: { kind: "number", value: 6, unit: "×10⁻⁶/°C" },

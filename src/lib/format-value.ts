@@ -32,7 +32,7 @@ export function formatValue(value: Value, locale: Locale, labels: ValueLabels): 
     case "number": {
       if (value.unit === "Rd") return `Rd ${num(locale, value.value)} · ${labels.slipClass}`;
       const amount = value.max === undefined ? num(locale, value.value) : `${num(locale, value.value)}–${num(locale, value.max)}`;
-      const text = withUnit(locale, amount, value.unit);
+      const text = (value.estimated ? "≈ " : "") + withUnit(locale, amount, value.unit);
       if (value.qualifier === "above") return `${labels.qualifiers.above} ${text}`;
       if (value.qualifier === "average") return `${text} (${labels.qualifiers.average})`;
       return text;

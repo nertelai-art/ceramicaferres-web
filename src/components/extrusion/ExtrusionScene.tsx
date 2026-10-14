@@ -56,7 +56,8 @@ export type SceneProps = { progress: RefObject<number>; reducedMotion: boolean }
 const SMOOTHING = 4.5;
 const MAX_DELTA = 1 / 30;
 const FOV = 34;
-const BACKGROUND = "#16120f";
+// Fons d'estudi clar, com les fotos de producte de Ferrés (el mateix color que la secció).
+const BACKGROUND = "#f1eeea";
 
 // Colors del fang segons l'estat (fotos del taller: el fang humit és gris fosc, el cuit, terracota).
 const WET = new Color("#6e655e");
@@ -170,7 +171,7 @@ function Choreography({ progress, reducedMotion }: SceneProps) {
   // després recompila shaders). Es modifiquen a useFrame a través de les refs de les malles.
   const assets = useMemo(() => {
     const profile = profileLineGeometry();
-    const line = new Line(profile.geometry, new LineBasicMaterial({ color: "#d7793f", transparent: true }));
+    const line = new Line(profile.geometry, new LineBasicMaterial({ color: "#903d00", transparent: true }));
     return {
       pieceGeo: pieceGeometry(PIECE.depth, true),
       columnGeo: pieceGeometry(1, false),
@@ -298,16 +299,16 @@ function Choreography({ progress, reducedMotion }: SceneProps) {
 
     // 6. Surt el sol per darrere del mur: la llum passa pels arcs i en dibuixa l'ombra.
     const sunUp = sunAt(p);
-    if (sun.current) sun.current.intensity = sunUp * 3.4;
-    if (key.current) key.current.intensity = MathUtils.lerp(2.3, 1.1, sunUp);
+    if (sun.current) sun.current.intensity = sunUp * 2.6;
+    if (key.current) key.current.intensity = MathUtils.lerp(1.8, 0.9, sunUp);
   });
 
   return (
     <>
       <fog ref={fog} attach="fog" args={[BACKGROUND, 13, 30]} />
-      <hemisphereLight args={["#fff1e0", "#3a281c", 0.9]} />
-      <directionalLight position={[-6, 3, 4]} intensity={0.6} color="#ffe2c4" />
-      <directionalLight ref={key} position={[4, 6, 7]} intensity={2.3} color="#fff3e6" />
+      <hemisphereLight args={["#ffffff", "#d9cfc3", 1.25]} />
+      <directionalLight position={[-6, 3, 4]} intensity={0.5} color="#fff4e8" />
+      <directionalLight ref={key} position={[4, 6, 7]} intensity={1.8} color="#fff6ec" />
       <directionalLight
         ref={sun}
         position={[-2.5, 7, -10]}
@@ -329,7 +330,7 @@ function Choreography({ progress, reducedMotion }: SceneProps) {
       {/* Terra: rep l'ombra del mur i la llum que passa pels arcs. */}
       <mesh rotation-x={-Math.PI / 2} receiveShadow>
         <planeGeometry args={[60, 60]} />
-        <meshStandardMaterial color="#3a2d25" roughness={1} />
+        <meshStandardMaterial color="#ebe5de" roughness={1} />
       </mesh>
 
       {/* Perfil dibuixat al pla de la filera. */}
