@@ -23,7 +23,7 @@ tècniques van en Figtree amb `tabular-nums`.
 
 | Secció | Tècnica | Per què |
 |---|---|---|
-| Inici | Entrada en carregar, CSS (`hero-phases.ts`) | La seva foto d'estudi de les gelosies Empúries, separada en capes: les peces entren una a una fent saltirons, com si caminessin, i s'aturen on són a la foto. Sense vídeo ni scroll. (Abans: la barra de fang a l'extrusora, massa fosca; les Volta, que ja surten a «Com es fa»; un clip del revestiment Albera, que no va agradar.) |
+| Inici | Entrada en carregar, CSS (`hero-phases.ts`) | Les seves fotos de producte de les Empúries (peces senceres): entren una a una fent saltirons, com si caminessin, i formen una composició d'estudi com la de la seva foto de presentació. Sense vídeo ni scroll. (Abans: la barra de fang a l'extrusora, massa fosca; les Volta, que ja surten a «Com es fa»; un clip del revestiment Albera; i la foto d'estudi tallada a trossos, on es notaven els retalls.) |
 | De la filera a la peça | 3D (`scroll-3d-scenes`) | Una celosia és un perfil extruït: es modela exactament com es fabrica (`ExtrudeGeometry`). |
 | El taller | Vídeo lligat al scroll, muntatge de clips curts | Fotos reals de taller animades; fos entre passos, no recorregut continu. |
 | Anatomia del material | 3D (three.js) amb reserva en CSS 3D | A l'inici, versió curta que s'explica sola; el detall interactiu (material, esmalt, comparativa) és a la pàgina de materials. |

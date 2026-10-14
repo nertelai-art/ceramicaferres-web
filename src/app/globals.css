@@ -226,25 +226,26 @@
    * Primera pantalla: les peces de les Empúries entren fent saltirons (temps i camins a
    * hero-phases.ts). Cada peça té dues capes de moviment: el contenidor fa el camí (`translate`,
    * `scale`) i la imatge fa els salts (`translate`, `scale` i `rotate` per separat, perquè no es
-   * trepitgin). Les unitats `cqw` són de l'escenari: 2048 px de la foto = 100cqw.
+   * trepitgin). L'ombra fa el mateix camí, però es queda a terra: quan la peça salta, s'esvaeix una
+   * mica. Les unitats `cqw` són de l'escenari: 2048 unitats = 100cqw.
    */
   .hero {
     background: radial-gradient(ellipse 85% 85% at 70% 80%, #f4f1ed 0%, #e9e4de 48%, #dcd6cf 100%);
   }
   .hero-stage {
-    --stage-w: min(76vw, calc((100svh - var(--header-h) - 3rem) * 1.62));
+    --stage-w: min(70vw, calc((100svh - var(--header-h) - 3rem) * 1.62));
     container-type: inline-size;
     position: relative;
     aspect-ratio: 2048 / 1152;
-    width: 128vw;
-    margin: var(--header-h) 0 0 -14vw;
+    width: 124vw;
+    margin: var(--header-h) 0 0 -12vw;
     pointer-events: none;
   }
   @media (min-width: 1024px) {
     .hero-stage {
       position: absolute;
       bottom: max(1rem, 2svh);
-      right: calc(var(--stage-w) * -0.1);
+      right: calc(var(--stage-w) * -0.08);
       width: var(--stage-w);
       margin: 0;
     }
@@ -257,9 +258,11 @@
     display: block;
     width: 100%;
     height: auto;
-    transform-origin: 50% 94%;
+    /* El centre de la base de la peça, dins el retall (la resta és ombra). */
+    transform-origin: 58% 90%;
   }
-  .hero-piece[data-entry="walk"] {
+  .hero-piece[data-entry="walk"],
+  .hero-shadow {
     animation: hero-travel calc(var(--hops) * var(--hop)) cubic-bezier(0.3, 0.1, 0.45, 1) var(--delay) both;
   }
   .hero-piece[data-entry="walk"] > img {
@@ -271,27 +274,30 @@
   .hero-piece[data-entry="drop"] > img {
     animation: hero-drop var(--drop) linear var(--delay) both;
   }
-  .hero-shadow {
-    animation: hero-fade var(--fade) ease-out var(--delay) both;
+  .hero-shadow > img {
+    animation: hero-shadow-hop var(--hop) linear var(--delay) var(--hops) both;
   }
-  /* Peu de la foto: a la dreta, dins la part de l'escenari que es veu (la resta surt de la pantalla). */
+  /* Peu de foto: a dalt a la dreta, sobre el mur (l'únic racó lliure a totes les amplades). */
   .hero-caption {
     position: absolute;
-    right: 14%;
-    /* Sota la base del parell del davant, que baixa cap a l'esquerra. */
-    top: 94.5%;
+    right: 11%;
+    top: 1.5%;
     font-size: 0.75rem;
+    line-height: 1.35;
+    white-space: nowrap;
     letter-spacing: 0.02em;
     text-align: right;
     color: color-mix(in srgb, var(--color-carbo) 62%, transparent);
-    white-space: nowrap;
     animation: hero-fade 0.6s ease-out var(--end) both;
   }
   @media (max-width: 1023px) {
+    /* A mòbil, sota l'escenari: a dalt hi ha la capçalera. */
     .hero-caption {
-      right: 11%;
+      right: 10%;
       top: calc(100% - 0.35rem);
+      width: auto;
       font-size: 0.6875rem;
+      white-space: nowrap;
     }
   }
 }
@@ -302,7 +308,7 @@
     scale: var(--from-s);
     opacity: var(--from-o);
   }
-  30% {
+  18% {
     opacity: 1;
   }
   to {
@@ -391,6 +397,20 @@
   100% {
     translate: 0 0;
     scale: 1 1;
+  }
+}
+/* L'ombra d'una peça que salta: més petita i més clara quan la peça és a dalt. */
+@keyframes hero-shadow-hop {
+  0%,
+  100% {
+    opacity: 1;
+    scale: 1;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.4, 1);
+  }
+  50% {
+    opacity: 0.5;
+    scale: 0.94;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.8, 0.3);
   }
 }
 @keyframes hero-fade {

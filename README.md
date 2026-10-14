@@ -6,8 +6,8 @@ llarga amb vídeo i 3D lligats al scroll, i una pàgina per a cada col·lecció 
 
 ## Seccions de l'inici
 
-1. **Inici** — les gelosies Empúries de la foto d'estudi de Ferrés entren una a una fent saltirons
-   (CSS, sense vídeo; capes preparades amb `pnpm hero`).
+1. **Inici** — gelosies Empúries (fotos de producte de Ferrés) entren una a una fent saltirons
+   (CSS, sense vídeo; retalls preparats amb `pnpm hero`).
 2. **Empresa** — l'ofici des de 1956 i quatre xifres.
 3. **Col·leccions** — gelosies, rajoles, lavabos i elements constructius.
 4. **De la filera a la peça** — escena 3D (three.js): perfil, filera, extrusió, tall, cocció i mur.
