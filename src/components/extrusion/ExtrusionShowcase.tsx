@@ -51,7 +51,7 @@ export function ExtrusionShowcase({ t }: { t: Dictionary }) {
       ref={section}
       id={SECTION_IDS.process}
       aria-labelledby="proces-titol"
-      className={`relative bg-forn ${animated ? "h-[460vh]" : ""}`}
+      className={`relative bg-calc ${animated ? "h-[460vh]" : ""}`}
     >
       <div className={`${animated ? "sticky top-0 h-[100svh]" : "py-24"} overflow-hidden`}>
         {/* Brasa del forn: s'encén durant la cocció */}
@@ -59,7 +59,7 @@ export function ExtrusionShowcase({ t }: { t: Dictionary }) {
           ref={glow}
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-0"
-          style={{ background: "radial-gradient(60% 55% at 62% 60%, rgba(255,90,20,0.28), rgba(144,61,0,0.12) 45%, transparent 75%)" }}
+          style={{ background: "radial-gradient(60% 55% at 62% 60%, rgba(255,110,40,0.22), rgba(215,121,63,0.10) 45%, transparent 75%)" }}
         />
         {is3d && near && (
           <div className="absolute inset-0">
@@ -68,25 +68,25 @@ export function ExtrusionShowcase({ t }: { t: Dictionary }) {
         )}
 
         {/* Vel perquè el text de l'esquerra es llegeixi encara que l'escena hi passi per sota */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 hidden w-[48%] bg-gradient-to-r from-forn via-forn/80 to-transparent lg:block" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 hidden w-[48%] bg-gradient-to-r from-calc via-calc/80 to-transparent lg:block" />
         <div className="pointer-events-none container-x relative flex h-full flex-col pt-[calc(var(--header-h)+1.5rem)] lg:justify-center lg:pt-0">
           <div className="max-w-md">
-            <p className="eyebrow text-argila">{t.extrusion.eyebrow}</p>
+            <p className="eyebrow text-terra">{t.extrusion.eyebrow}</p>
             <h2 id="proces-titol" className="display mt-4 text-[clamp(2.4rem,5.2vw,4.8rem)]">
               {t.extrusion.title}
             </h2>
-            <p className="mt-5 hidden text-calc/75 sm:block">{t.extrusion.lead}</p>
+            <p className="mt-5 hidden text-carbo/75 sm:block">{t.extrusion.lead}</p>
             <ol ref={list} className="mt-8 grid gap-1">
               {steps.map((step, index) => (
                 <li
                   key={step.title}
                   data-state={index === 0 ? "active" : "todo"}
-                  className="group grid grid-cols-[2.2rem_1fr] gap-x-2 rounded-xl px-3 py-2.5 transition-[opacity,background-color] duration-500 data-[state=active]:bg-calc/[0.06] data-[state=done]:opacity-45 data-[state=todo]:opacity-30 max-lg:data-[state=done]:hidden max-lg:data-[state=todo]:hidden"
+                  className="group grid grid-cols-[2.2rem_1fr] gap-x-2 rounded-xl px-3 py-2.5 transition-[opacity,background-color] duration-500 data-[state=active]:bg-blanc data-[state=active]:shadow-sm data-[state=done]:opacity-45 data-[state=todo]:opacity-30 max-lg:data-[state=done]:hidden max-lg:data-[state=todo]:hidden"
                 >
-                  <span className="num pt-0.5 text-sm font-semibold text-argila">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="num pt-0.5 text-sm font-semibold text-terra">{String(index + 1).padStart(2, "0")}</span>
                   <span>
                     <strong className="block font-semibold">{step.title}</strong>
-                    <span className="mt-1 block text-sm leading-relaxed text-calc/75 group-data-[state=done]:hidden group-data-[state=todo]:hidden">
+                    <span className="mt-1 block text-sm leading-relaxed text-carbo/75 group-data-[state=done]:hidden group-data-[state=todo]:hidden">
                       {step.text}
                     </span>
                   </span>
@@ -103,11 +103,11 @@ export function ExtrusionShowcase({ t }: { t: Dictionary }) {
         </div>
 
         {animated && (
-          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-calc/10" role="presentation">
-            <div ref={bar} className="h-full origin-left scale-x-0 bg-argila" />
+          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-carbo/10" role="presentation">
+            <div ref={bar} className="h-full origin-left scale-x-0 bg-terra" />
           </div>
         )}
-        <p className="eyebrow pointer-events-none absolute bottom-6 right-[max(1rem,4vw)] text-calc/45">{t.extrusion.model}</p>
+        <p className="eyebrow pointer-events-none absolute bottom-6 right-[max(1rem,4vw)] text-carbo/45">{t.extrusion.model}</p>
         <p className="sr-only">{t.extrusion.srDescription}</p>
       </div>
     </section>

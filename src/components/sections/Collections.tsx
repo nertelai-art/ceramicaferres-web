@@ -16,7 +16,7 @@ const LAYOUT: Record<(typeof COLLECTION_KEYS)[number], string> = {
 
 export function Collections({ locale, t }: { locale: Locale; t: Dictionary }) {
   return (
-    <section id={SECTION_IDS.collections} aria-labelledby="colleccions-titol" className="on-light bg-calc py-[clamp(5rem,11vw,9rem)] text-carbo">
+    <section id={SECTION_IDS.collections} aria-labelledby="colleccions-titol" className="bg-calc-2 py-[clamp(5rem,11vw,9rem)] text-carbo">
       <div className="container-x">
         <div className="grid gap-6 md:grid-cols-[1fr_1fr] md:items-end">
           <div className="reveal">

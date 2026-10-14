@@ -50,7 +50,7 @@ export function Contact({ t }: { t: Dictionary }) {
         </label>
         {input}
         {invalid && (
-          <p id={`${id}-${name}-error`} className="flex items-start gap-2 text-sm text-[#ffb08a]">
+          <p id={`${id}-${name}-error`} className="flex items-start gap-2 text-sm text-[#a3300c]">
             <span aria-hidden="true">!</span>
             {c.errors[name]}
           </p>
@@ -60,48 +60,48 @@ export function Contact({ t }: { t: Dictionary }) {
   };
 
   const control =
-    "w-full rounded-xl border border-calc/20 bg-forn/60 px-4 py-3 text-calc placeholder:text-calc/35 transition-colors hover:border-calc/40 focus:border-argila focus:outline-none aria-[invalid=true]:border-[#ffb08a]";
+    "w-full rounded-xl border border-carbo/20 bg-blanc px-4 py-3 text-carbo placeholder:text-carbo/35 transition-colors hover:border-carbo/40 focus:border-terra focus:outline-none aria-[invalid=true]:border-[#a3300c]";
   const a11y = (name: ContactField) => ({
     "aria-invalid": errors.includes(name) || undefined,
     "aria-describedby": errors.includes(name) ? `${id}-${name}-error` : undefined,
   });
 
   return (
-    <section id={SECTION_IDS.contact} aria-labelledby="contacte-titol" className="grain relative overflow-hidden bg-forn py-[clamp(5rem,11vw,9rem)]">
+    <section id={SECTION_IDS.contact} aria-labelledby="contacte-titol" className="grain relative overflow-hidden bg-calc-2 py-[clamp(5rem,11vw,9rem)]">
       <div className="container-x relative grid gap-14 lg:grid-cols-[1fr_1.15fr]">
         <div>
-          <p className="eyebrow text-argila">{c.eyebrow}</p>
+          <p className="eyebrow text-terra">{c.eyebrow}</p>
           <h2 id="contacte-titol" className="display mt-4 text-[clamp(2.6rem,6vw,5.6rem)]">
             {c.title}
           </h2>
-          <p className="mt-5 max-w-md text-lg text-calc/75">{c.lead}</p>
+          <p className="mt-5 max-w-md text-lg text-carbo/75">{c.lead}</p>
 
           <dl className="mt-12 grid gap-6 text-sm">
             <div>
-              <dt className="eyebrow text-fang">{c.address}</dt>
+              <dt className="eyebrow text-carbo/60">{c.address}</dt>
               <dd className="mt-2 leading-relaxed">
                 {site.address.street}
                 <br />
                 {site.address.postalCode} {site.address.locality} ({site.address.region})
                 <br />
-                <a className="mt-1 inline-block text-argila underline-offset-4 hover:underline" href={site.mapsUrl} rel="noopener" target="_blank">
+                <a className="mt-1 inline-block text-terra underline-offset-4 hover:underline" href={site.mapsUrl} rel="noopener" target="_blank">
                   {c.map} ↗
                 </a>
               </dd>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <dt className="eyebrow text-fang">{c.phone}</dt>
+                <dt className="eyebrow text-carbo/60">{c.phone}</dt>
                 <dd className="mt-2">
-                  <a className="text-lg font-semibold hover:text-argila" href={site.phoneHref}>
+                  <a className="text-lg font-semibold hover:text-terra" href={site.phoneHref}>
                     {site.phone}
                   </a>
                 </dd>
               </div>
               <div>
-                <dt className="eyebrow text-fang">{c.mail}</dt>
+                <dt className="eyebrow text-carbo/60">{c.mail}</dt>
                 <dd className="mt-2 break-all">
-                  <a className="text-lg font-semibold hover:text-argila" href={`mailto:${site.email}`}>
+                  <a className="text-lg font-semibold hover:text-terra" href={`mailto:${site.email}`}>
                     {site.email}
                   </a>
                 </dd>
@@ -110,7 +110,7 @@ export function Contact({ t }: { t: Dictionary }) {
           </dl>
         </div>
 
-        <form ref={form} noValidate onSubmit={onSubmit} className="grid gap-5 rounded-2xl border border-calc/10 bg-forn-2 p-6 sm:p-9" aria-describedby={`${id}-note`}>
+        <form ref={form} noValidate onSubmit={onSubmit} className="grid gap-5 rounded-2xl border border-carbo/10 bg-calc p-6 shadow-sm sm:p-9" aria-describedby={`${id}-note`}>
           <div className="grid gap-5 sm:grid-cols-2">
             {field("name", c.name, <input id={`${id}-name`} name="name" autoComplete="name" required className={control} onChange={() => revalidate("name")} {...a11y("name")} />)}
             {field(
@@ -121,7 +121,7 @@ export function Contact({ t }: { t: Dictionary }) {
           </div>
           <div className="grid gap-2">
             <label htmlFor={`${id}-company`} className="text-sm font-semibold">
-              {c.company} <span className="font-normal text-calc/50">({c.optional})</span>
+              {c.company} <span className="font-normal text-carbo/55">({c.optional})</span>
             </label>
             <input id={`${id}-company`} name="company" autoComplete="organization" className={control} />
           </div>
@@ -131,7 +131,7 @@ export function Contact({ t }: { t: Dictionary }) {
               {c.topics.map((topic, i) => (
                 <label
                   key={topic}
-                  className="cursor-pointer rounded-full border border-calc/20 px-4 py-2 text-sm transition-colors hover:border-calc/50 has-[:checked]:border-argila has-[:checked]:bg-argila has-[:checked]:text-forn has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-argila"
+                  className="cursor-pointer rounded-full border border-carbo/20 bg-blanc px-4 py-2 text-sm transition-colors hover:border-carbo/50 has-[:checked]:border-terra has-[:checked]:bg-terra has-[:checked]:text-calc has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-terra"
                 >
                   <input type="radio" name="topic" value={topic} defaultChecked={i === 0} className="sr-only" />
                   {topic}
@@ -148,14 +148,14 @@ export function Contact({ t }: { t: Dictionary }) {
             <button type="submit" className="btn btn-primary justify-center">
               {c.send} <span aria-hidden="true">→</span>
             </button>
-            <p id={`${id}-note`} className="text-xs text-calc/55 sm:max-w-[16rem] sm:text-right">
+            <p id={`${id}-note`} className="text-xs text-carbo/60 sm:max-w-[16rem] sm:text-right">
               {fill(c.sendNote, { email: site.email })}
             </p>
           </div>
-          <p role="status" className="text-sm text-argila empty:hidden">
+          <p role="status" className="text-sm text-terra empty:hidden">
             {status === "sent" ? fill(c.sent, { email: site.email }) : ""}
           </p>
-          <p className="text-xs text-calc/45">{c.privacy}</p>
+          <p className="text-xs text-carbo/50">{c.privacy}</p>
         </form>
       </div>
     </section>

@@ -10,7 +10,7 @@ const BUILD_YEAR = 2026;
 
 export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
   return (
-    <footer className="relative border-t border-calc/10 bg-forn pt-20 pb-10 text-calc">
+    <footer className="on-dark relative bg-carbo pt-20 pb-10 text-calc">
       <div className="container-x grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo className="h-12 w-auto text-argila" />
@@ -51,6 +51,11 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
                 </a>
               </li>
             ))}
+            <li>
+              <a className="hover:text-argila" href={site.social.instagram} rel="noopener" target="_blank">
+                Instagram
+              </a>
+            </li>
             <li>
               <a className="hover:text-argila" href={site.social.facebook} rel="noopener" target="_blank">
                 Facebook

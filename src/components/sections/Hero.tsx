@@ -8,10 +8,10 @@ import { ScrollVideo, type ScrollVideoFrame } from "@/components/video/ScrollVid
 
 const CLIPS = [
   {
-    src: "/video/inici-extrusio.mp4",
-    srcMobile: "/video/inici-extrusio-m.mp4",
-    poster: "/video/inici-extrusio.webp",
-    posterMobile: "/video/inici-extrusio-m.webp",
+    src: "/video/inici-volta.mp4",
+    srcMobile: "/video/inici-volta-m.mp4",
+    poster: "/video/inici-volta.webp",
+    posterMobile: "/video/inici-volta-m.webp",
     scroll: 1.4,
   },
 ] as const;
@@ -38,37 +38,37 @@ export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
 
   return (
     <section id="inici" aria-labelledby="inici-titol" className="relative">
-      <ScrollVideo clips={CLIPS} label={t.hero.videoLabel} onFrame={onFrame} stageClassName="bg-forn">
+      <ScrollVideo clips={CLIPS} label={t.hero.videoLabel} onFrame={onFrame} stageClassName="bg-calc">
         {/* Vel per llegir el text sobre el vídeo */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forn via-forn/45 to-forn/10" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-r from-forn/70 via-transparent to-transparent" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-calc via-calc/30 to-transparent sm:from-calc/80 sm:via-transparent" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-calc/95 via-calc/55 to-transparent sm:block" />
 
         <div className="container-x relative flex h-full flex-col justify-end pb-[max(2.5rem,7vh)] pt-[var(--header-h)]">
           <div ref={copy} className="max-w-[62rem] will-change-transform">
-            <p className="eyebrow text-argila">{t.hero.eyebrow}</p>
-            <h1 id="inici-titol" className="display mt-5 text-[clamp(3rem,8.4vw,8.5rem)] text-calc">
+            <p className="eyebrow text-terra">{t.hero.eyebrow}</p>
+            <h1 id="inici-titol" className="display mt-5 text-[clamp(3rem,8.4vw,8.5rem)] text-carbo">
               {t.hero.title}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-calc/85 sm:text-xl">{t.hero.lead}</p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-carbo/80 sm:text-xl">{t.hero.lead}</p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <a href={sectionPath(locale, "contact")} className="btn btn-primary">
                 {t.hero.primary}
                 <span aria-hidden="true">→</span>
               </a>
-              <a href={sectionPath(locale, "collections")} className="btn btn-ghost text-calc">
+              <a href={sectionPath(locale, "collections")} className="btn btn-ghost bg-calc/60 text-carbo backdrop-blur-sm">
                 {t.hero.secondary}
               </a>
             </div>
-            <p className="mt-8 flex items-center gap-3 text-sm text-calc/70">
-              <span aria-hidden="true" className="inline-block h-px w-10 bg-argila" />
+            <p className="mt-8 flex items-center gap-3 text-sm text-carbo/70">
+              <span aria-hidden="true" className="inline-block h-px w-10 bg-terra" />
               {t.hero.proof}
             </p>
           </div>
           <div ref={hint} className="absolute bottom-6 right-[max(1rem,4vw)] hidden text-right sm:block">
-            <p className="eyebrow text-calc/60">
+            <p className="eyebrow text-carbo/60">
               {t.hero.scroll} <span aria-hidden="true">↓</span>
             </p>
-            <p className="mt-2 max-w-[15rem] text-[0.68rem] leading-snug text-calc/40">{t.workshop.note}</p>
+            <p className="mt-2 max-w-[15rem] text-[0.68rem] leading-snug text-carbo/50">{t.workshop.note}</p>
           </div>
         </div>
       </ScrollVideo>

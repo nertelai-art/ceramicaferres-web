@@ -48,8 +48,23 @@ const SAME_IN_ANY_LOCALE = [
   "© {year} Ceràmica Ferrés",
 ];
 const SAME_IN_LOCALE: Record<Translated, string[]> = {
-  es: ["Menú", "Idioma", "Material", "Empresa familiar", "Lavabos", "El taller", "Gres", "Arquitectura", "opcional"],
-  en: ["Material"],
+  es: [
+    "Menú",
+    "Idioma",
+    "Material",
+    "Empresa familiar",
+    "Lavabos",
+    "El taller",
+    "Gres",
+    "Arquitectura",
+    "opcional",
+    "Comparativa",
+    // Xifres: el castellà les escriu com el català; l'anglès i el francès, no.
+    "1.024 °C",
+    "3,1 %",
+    "52,4 N/mm²",
+  ],
+  en: ["Material", "Materials"],
   fr: ["Formats", "Nom"],
 };
 

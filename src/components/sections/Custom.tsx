@@ -63,7 +63,7 @@ export function Custom({ locale, t }: { locale: Locale; t: Dictionary }) {
           </ul>
           <p className="mt-3 text-sm text-calc/75">{c.awardsNote}</p>
         </div>
-        <a href={sectionPath(locale, "contact")} className="btn bg-calc text-terra hover:bg-forn hover:text-calc">
+        <a href={sectionPath(locale, "contact")} className="btn bg-calc text-terra hover:bg-carbo hover:text-calc">
           {c.cta} <span aria-hidden="true">→</span>
         </a>
       </div>
