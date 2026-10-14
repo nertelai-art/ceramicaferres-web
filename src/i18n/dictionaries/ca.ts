@@ -124,7 +124,7 @@ export const ca = {
       { title: "Assecat", text: "Les peces reposen a les prestatgeries fins que han perdut l'aigua." },
       { title: "Esmalt", text: "Les peces vidriades es banyen en esmalt i es couen una sola vegada: monococció." },
     ],
-    note: "Clips generats amb IA a partir de fotografies reals del taller de Ferrés.",
+    note: "Clips generats amb IA a partir de fotografies reals de Ferrés.",
     videoLabel:
       "Escenes del taller: argila a les mans, un fil d'acer tallant la barra de fang, peces assecant-se a les prestatgeries i una rajola banyada en esmalt.",
   },

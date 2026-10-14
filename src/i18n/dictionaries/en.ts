@@ -126,7 +126,7 @@ export const en: Dictionary = {
       { title: "Drying", text: "The pieces rest on the shelves until they have lost their water." },
       { title: "Glaze", text: "Glazed pieces are dipped in glaze and fired only once: single firing." },
     ],
-    note: "AI-generated clips based on real photographs of the Ferrés workshop.",
+    note: "AI-generated clips based on real photographs by Ferrés.",
     videoLabel:
       "Workshop scenes: clay in someone's hands, a steel wire cutting the clay bar, pieces drying on the shelves and a tile being dipped in glaze.",
   },
