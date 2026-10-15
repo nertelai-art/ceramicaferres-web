@@ -27,5 +27,9 @@ pnpm images         # torna a fer les imatges de public/images a partir de _sour
 node scripts/shoot.mjs http://localhost:3100/ca captura 1440x900 top p:proces:0.5
 ```
 
+Ara és una **demo per a un lead**: només s'obre amb un enllaç personal (`pnpm demo:link "Nom"`) i
+registra les visites amb PostHog. El peu diu que el web no fa servir galetes: abans que sigui el web
+del client, es treu el kit de demo (vegeu `CLAUDE.md`) o es canvia el text.
+
 Node 22 i pnpm 10. Les regles del projecte són a [CLAUDE.md](CLAUDE.md), la direcció visual a
 [docs/direccio-visual.md](docs/direccio-visual.md) i d'on surt cada dada a [docs/fonts.md](docs/fonts.md).

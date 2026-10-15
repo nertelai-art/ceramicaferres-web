@@ -6,6 +6,8 @@ import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/layout/JsonLd";
 import { RevealObserver } from "@/components/layout/RevealObserver";
 import { FALLBACK_LOCALE, isLocale, LOCALE_INFO, LOCALES } from "@/i18n/config";
+import { DemoBadge } from "@/demo-kit/DemoBadge";
+import { DemoTracker } from "@/demo-kit/DemoTracker";
 import { getDictionary } from "@/i18n/dictionaries";
 import { deploymentUrl, isIndexable } from "@/lib/deployment";
 import "../globals.css";
@@ -60,6 +62,9 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         </main>
         <Footer locale={lang} t={t} />
         <RevealObserver />
+        <DemoTracker site="ceramica-ferres" />
+        {/* La insígnia de la demo només parla valencià i castellà. */}
+        <DemoBadge site="ceramica-ferres" locale={lang === "ca" ? "ca" : "es"} />
         <JsonLd locale={lang} t={t} />
       </body>
     </html>
