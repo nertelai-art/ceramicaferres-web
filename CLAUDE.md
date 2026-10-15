@@ -43,6 +43,25 @@ Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és pro
   fotograma. Atzar amb llavor (`src/lib/random.ts`).
 - Cada escena té l'estat final a l'HTML, respecta `prefers-reduced-motion` i té reserva sense WebGL.
 
+## Demo per a leads (`src/demo-kit`)
+
+- **El web és una demo per a un lead**: un cop desplegat, només s'hi entra amb un enllaç personal, i
+  qui no en porta veu la pàgina de bloqueig de Nertel. Els enllaços es fan amb
+  `pnpm demo:link "Nom del lead" --days 15`, que llegeix el secret de `.env.local` (el mateix que a
+  Vercel; no es puja mai).
+- El codi ve del kit comú de les demos (`../nertel-demo-kit`, skill `demo-leads`). **No s'edita
+  aquí**: es canvia al kit i es torna a copiar, perquè totes les demos siguin iguals.
+- Vercel: `DEMO_SECRET` i `DEMO_SITE` (la porta), i `NEXT_PUBLIC_POSTHOG_KEY` i
+  `NEXT_PUBLIC_POSTHOG_HOST` (el seguiment de les visites dels leads amb PostHog). Sense
+  `DEMO_SECRET` el web és obert.
+- `src/proxy.ts` fa dues coses: primer la porta de la demo i després la redirecció de l'arrel a
+  l'idioma, que s'emporta les galetes de l'enllaç (`src/proxy.test.ts`). Si es treu el kit, la
+  redirecció s'hi queda. La insígnia només parla català i castellà: en anglès i francès surt en
+  castellà.
+- **Quan el web passi a ser el del client** es treu el kit: `src/proxy.ts`, `DemoTracker` i
+  `DemoBadge` del layout de `[lang]`, la carpeta `src/demo-kit`, `posthog-js`, l'script `demo:link` i les
+  variables. I es revisa l'avís de galetes.
+
 ## Git
 
 - Branca d'integració: `developer`. A `main` no s'hi puja a mà.
@@ -51,7 +70,8 @@ Les regles de casa (`~/.claude/CLAUDE.md`) valen aquí. Això és el que és pro
   i només quan l'usuari ho diu.
 - Vercel (`ceramicaferres-web`): producció només des de `main` (ho vigila `ignoreCommand` de
   `vercel.json`) a https://ceramicaferres-web.vercel.app, oberta sense inici de sessió (decisió de
-  l'usuari). Cada branca té la seva previsualització.
+  l'usuari); quan hi arribi el kit de demo, només amb enllaç personal (vegeu «Demo per a leads»).
+  Cada branca té la seva previsualització.
 - El connector de Vercel no té permís per crear ni modificar el projecte: es fa amb la CLI,
   `pnpm --config.cache-dir=C:/Users/nerte/.pnpm-dlx dlx vercel@<versió> …` (la memòria cau per defecte
   supera el límit de 260 caràcters de Windows). Les crides `vercel api` des de PowerShell: Git Bash
