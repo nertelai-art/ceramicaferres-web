@@ -303,6 +303,7 @@ export const fr: Dictionary = {
     privacy: "Confidentialité",
     cookies: "Ce site n'utilise pas de cookies.",
     rights: "© {year} Ceràmica Ferrés",
+    madeBy: "Site réalisé par",
   },
   notFound: {
     title: "Cette pièce n'est pas au catalogue.",

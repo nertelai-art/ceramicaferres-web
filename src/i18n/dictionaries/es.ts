@@ -298,6 +298,7 @@ export const es: Dictionary = {
     privacy: "Privacidad",
     cookies: "Esta web no utiliza cookies.",
     rights: "© {year} Ceràmica Ferrés",
+    madeBy: "Web hecha por",
   },
   notFound: {
     title: "Esta pieza no está en el catálogo.",

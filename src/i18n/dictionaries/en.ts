@@ -299,6 +299,7 @@ export const en: Dictionary = {
     privacy: "Privacy",
     cookies: "This website does not use cookies.",
     rights: "© {year} Ceràmica Ferrés",
+    madeBy: "Website by",
   },
   notFound: {
     title: "This piece is not in the catalogue.",
