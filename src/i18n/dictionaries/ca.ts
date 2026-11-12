@@ -297,6 +297,7 @@ export const ca = {
     privacy: "Privacitat",
     cookies: "Aquest web no fa servir galetes.",
     rights: "© {year} Ceràmica Ferrés",
+    madeBy: "Web feta per",
   },
   notFound: {
     title: "Aquesta peça no és al catàleg.",
